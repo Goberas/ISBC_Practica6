@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="robots" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="lib/collections.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jargs.jar"/>
+	<classpathentry kind="lib" path="lib/javacsv.jar"/>
+	<classpathentry kind="lib" path="lib/jess.jar"/>
+	<classpathentry kind="lib" path="lib/sbt.jar"/>
+	<classpathentry kind="lib" path="lib/Serialio.jar"/>
+	<classpathentry kind="lib" path="lib/soccerbots.jar"/>
+	<classpathentry kind="lib" path="lib/subsuncion.jar"/>
+	<classpathentry kind="lib" path="lib/ucmteam.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,5 @@
+GoToBall teamsSoccerbots.GoToBall
+BasicTeam teamsSoccerbots.BasicTeam
+BrianTeam teamsSoccerbots.BrianTeam
+PermHomoG teamsSoccerbots.PermHomoG
+DoogHomoG teamsSoccerbots.DoogHomoG

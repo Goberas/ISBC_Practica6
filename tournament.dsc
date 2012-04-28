@@ -1,0 +1,9 @@
+TupiTeam2 t070801.TupiTeam2
+TiquiTaca t070802.TiquiTaca
+VamosEquipo t070810.VamosEquipo
+IKHomoG teamsSoccerbots.AIKHomoG
+GoToBall teamsSoccerbots.GoToBall
+BasicTeam teamsSoccerbots.BasicTeam
+BrianTeam teamsSoccerbots.BrianTeam
+PermHomoG teamsSoccerbots.PermHomoG
+DoogHomoG teamsSoccerbots.DoogHomoG

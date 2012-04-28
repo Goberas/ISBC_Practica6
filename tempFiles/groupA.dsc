@@ -1,0 +1,4 @@
+TupiTeam2 t070801.TupiTeam2
+TiquiTaca t070802.TiquiTaca
+VamosEquipo t070810.VamosEquipo
+IKHomoG teamsSoccerbots.AIKHomoG
