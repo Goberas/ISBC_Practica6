@@ -1,5 +1,6 @@
-package t111209;
+package t111209.equipos;
 
+import t111209.entrenadores.Entrenador;
 import teams.ucmTeam.TeamManager;
 import teams.ucmTeam.UCMPlayer;
 

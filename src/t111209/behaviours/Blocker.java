@@ -1,9 +1,9 @@
-package t111209;
+package t111209.behaviours;
 
 import teams.ucmTeam.Behaviour;
 import teams.ucmTeam.RobotAPI;
 
-public class GoToBall extends Behaviour{
+public class Blocker extends Behaviour {
 	
 	@Override
 	public void configure() {
@@ -12,17 +12,13 @@ public class GoToBall extends Behaviour{
 	
 	@Override
 	public int takeStep() {
-		// Se situa detrás de la pelota y la empuja hasta la porteria oponente
-		myRobotAPI.setBehindBall(myRobotAPI.getOpponentsGoal());
-		// Si puede golpear golpea
-		if (myRobotAPI.canKick())
-			myRobotAPI.kick();
-		return myRobotAPI.ROBOT_OK;
+		myRobotAPI.blockGoalKeeper();
+		return RobotAPI.ROBOT_OK;
 	}
 	
 	@Override
 	public void onInit(RobotAPI r) {
-		r.setDisplayString("goToBallBehaviour");
+		r.setDisplayString("Blocker");
 	}
 	
 	@Override
