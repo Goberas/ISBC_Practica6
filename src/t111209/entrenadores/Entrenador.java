@@ -17,7 +17,7 @@ public class Entrenador extends TeamManager {
 	
 	@Override
 	public void onTakeStep() {
-		// Si la pelota está en campo contrario ==> GoToBall
+/*		// Si la pelota está en campo contrario ==> GoToBall
 		RobotAPI robot0 = _players[0].getRobotAPI();
 		// Convertimos las coordenadas de la pelota (egocéntricas)
 		// en coordenadas del campo, para saber en qué campo está
@@ -32,19 +32,35 @@ public class Entrenador extends TeamManager {
 				_players[0].setBehaviour(_behaviours[2]);
 			}
 		}
-		// Si el jugador esta en su campo --> GoToBall
+		*/
+		
+		if (_players[0].getBehaviour() != _behaviours[2]) 
+			_players[0].setBehaviour(_behaviours[2]);
+		// Si el jugador esta en su campo y no va ganando --> GoToBall
 		RobotAPI robot = _players[2].getRobotAPI();
-		if (robot.getPosition().x * robot.getFieldSide()>=0)
-			_players[2].setBehaviour(_behaviours[0]);
+		if ((robot.getPosition().x * robot.getFieldSide()>=0) &&
+			(robot.getMyScore() <= robot.getOpponentScore())){
+			for(int i=1; i<5;i++)
+				_players[i].setBehaviour(_behaviours[0]);
+		}
 		else
 			// E.o.c. --> Blocker
-			_players[2].setBehaviour(_behaviours[1]);
+			for(int i=1; i<5;i++)
+				_players[i].setBehaviour(_behaviours[0]);
 
 	}
 	
 	@Override
 	public Behaviour getDefaultBehaviour(int id) {
-		return _behaviours[0];
+		switch (id) {
+		case 0:
+			return _behaviours[2];
+			
+		default:
+			return _behaviours[0];
+		}
+		
+		
 	}
 	
 	@Override
