@@ -4,6 +4,7 @@ import EDU.gatech.cc.is.util.Vec2;
 import t111209.behaviours.Blocker;
 import t111209.behaviours.BuscadorBehaviour;
 import t111209.behaviours.CompiBehaviour;
+import t111209.behaviours.DefensaBehaviour;
 import t111209.behaviours.GoToBall;
 import t111209.behaviours.PorteroBehaviour;
 import teams.ucmTeam.Behaviour;
@@ -28,7 +29,7 @@ public class Entrenador extends TeamManager {
 		// Si el jugador no va ganando --> Compi
 		RobotAPI robot = _players[2].getRobotAPI();
 		if (robot.getMyScore() >= robot.getOpponentScore()){
-			for(int i=2; i<5;i++)
+			for(int i=3; i<5;i++)
 				_players[i].setBehaviour(_behaviours[0]);
 		}
 		else
@@ -47,6 +48,9 @@ public class Entrenador extends TeamManager {
 		case 1:
 			return _behaviours[3];
 			
+		case 2:
+			return _behaviours[1];
+			
 		default:
 			return _behaviours[0];
 		}
@@ -57,7 +61,7 @@ public class Entrenador extends TeamManager {
 	@Override
 	public Behaviour[] createBehaviours() {
 		return new Behaviour[] {new CompiBehaviour(), 
-								new Blocker(), 
+								new DefensaBehaviour(), 
 								new PorteroBehaviour(),
 								new BuscadorBehaviour()};
 		

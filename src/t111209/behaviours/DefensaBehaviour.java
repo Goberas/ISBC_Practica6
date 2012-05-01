@@ -13,7 +13,7 @@ import teams.ucmTeam.Behaviour;
 import teams.ucmTeam.Message;
 import teams.ucmTeam.RobotAPI;
 
-public class BuscadorBehaviour extends Behaviour {
+public class DefensaBehaviour extends Behaviour {
 	/**
 	 * Table for manage all state of the HFMS
 	 */
@@ -90,7 +90,7 @@ public class BuscadorBehaviour extends Behaviour {
 
 	@Override
 	public void onInit(RobotAPI r) {
-		r.setDisplayString("Buscador");
+		r.setDisplayString("Defensa");
 		//Initialize the stack with the first state 
 		stack = new Vector<State>();
 		stack.add(states.get(0));
@@ -108,186 +108,96 @@ public class BuscadorBehaviour extends Behaviour {
 		states = new Vector<State>();
 		State e;
 		
-		//State 0 : Node  2 
+		//State 0 : Node 10 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_0_0";
 		e.transitions[0].state = 1;
-		e.transitions[1] = new Transition();
-		e.transitions[1].condition = "cond_0_1";
-		e.transitions[1].state = 2;
 		e.actions = "acc_0";
 		states.add(e);
 
 		//State 1 : Node  1 
 		e = new State();
-		e.transitions = new Transition[1];
+		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_1_0";
-		e.transitions[0].state = 0;
+		e.transitions[0].state = 2;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_1_1";
+		e.transitions[1].state = 0;
 		e.actions = "acc_1";
 		states.add(e);
 
-		//State 2 : Node 11 
+		//State 2 : Node  2 
 		e = new State();
-		e.transitions = new Transition[1];
+		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_2_0";
-		e.transitions[0].state = 0;
+		e.transitions[0].state = 3;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_2_1";
+		e.transitions[1].state = 1;
 		e.actions = "acc_2";
 		states.add(e);
 
-		//State 3 : Node  3 
+		//State 3 : Node  5 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_3_0";
-		e.transitions[0].state = 5;
+		e.transitions[0].state = 2;
 		e.actions = "acc_3";
-		states.add(e);
-
-		//State 4 : Node 14 
-		e = new State();
-		e.transitions = new Transition[2];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_4_0";
-		e.transitions[0].state = 6;
-		e.transitions[1] = new Transition();
-		e.transitions[1].condition = "cond_4_1";
-		e.transitions[1].state = 7;
-		e.actions = "acc_4";
-		states.add(e);
-
-		//State 5 : Node  5 
-		e = new State();
-		e.transitions = new Transition[1];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_5_0";
-		e.transitions[0].state = 8;
-		e.actions = "acc_5";
-		states.add(e);
-
-		//State 6 : Node 18 
-		e = new State();
-		e.transitions = new Transition[1];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_6_0";
-		e.transitions[0].state = 4;
-		e.actions = "acc_6";
-		states.add(e);
-
-		//State 7 : Node 15 
-		e = new State();
-		e.transitions = new Transition[1];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_7_0";
-		e.transitions[0].state = 4;
-		e.actions = "acc_7";
-		states.add(e);
-
-		//State 8 : Node  4 
-		e = new State();
-		e.transitions = new Transition[1];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_8_0";
-		e.transitions[0].state = 5;
-		e.actions = "acc_8";
 		states.add(e);
 
 
 	}
 	
 	//Conditions and actions that was building based in the graph of de HFMS of the tool editor
-	//Conditions for State 0 : Node  2
+	//Conditions for State 0 : Node 10
 	public Boolean cond_0_0(){
-		return ((myRobotAPI.blocked() == true));
-	}
-
-//Conditions for State 0 : Node  2
-	public Boolean cond_0_1(){
-		return ((myRobotAPI.getBall().r <= 0.2));
+		return ((myRobotAPI.getOurGoal().r <= 0.2));
 	}
 
 	public void acc_0(){
-stack.add(states.get(3));
+		WalkTowardsGoal();
 	}
 
 //Conditions for State 1 : Node  1
 	public Boolean cond_1_0(){
-		return ((myRobotAPI.blocked() == false));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x <= 0) || (myRobotAPI.getBall().r < myRobotAPI.getOurGoal().r == true));
+	}
+
+//Conditions for State 1 : Node  1
+	public Boolean cond_1_1(){
+		return ((myRobotAPI.getOurGoal().r > 0.2) && (myRobotAPI.getBall().r < myRobotAPI.getOurGoal().r == false));
 	}
 
 	public void acc_1(){
-		Unblock();
+		Bloquea();
 	}
 
-//Conditions for State 2 : Node 11
+//Conditions for State 2 : Node  2
 	public Boolean cond_2_0(){
-		return ((myRobotAPI.getBall().r > 0.2));
+		return ((myRobotAPI.getBall().r <= 0.1));
+	}
+
+//Conditions for State 2 : Node  2
+	public Boolean cond_2_1(){
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0) && (myRobotAPI.getBall().r < myRobotAPI.getOurGoal().r == false));
 	}
 
 	public void acc_2(){
-stack.add(states.get(4));
-	}
-
-//Conditions for State 3 : Node  3
-	public Boolean cond_3_0(){
-		return ((myRobotAPI.getPosition().r < 0.1));
-	}
-
-	public void acc_3(){
-		GoToCenter();
-	}
-
-//Conditions for State 4 : Node 14
-	public Boolean cond_4_0(){
-		return ((myRobotAPI.blocked() == false));
-	}
-
-//Conditions for State 4 : Node 14
-	public Boolean cond_4_1(){
-		return ((myRobotAPI.getBall().r <= 0.2));
-	}
-
-	public void acc_4(){
 		Iralapelota();
 	}
 
-//Conditions for State 5 : Node  5
-	public Boolean cond_5_0(){
-		return ((myRobotAPI.getPosition().y <= -0.75));
+//Conditions for State 3 : Node  5
+	public Boolean cond_3_0(){
+		return ((myRobotAPI.getBall().r > 0.1));
 	}
 
-	public void acc_5(){
-		avanzacentroabajo();
-	}
-
-//Conditions for State 6 : Node 18
-	public Boolean cond_6_0(){
-		return ((myRobotAPI.blocked() == true));
-	}
-
-	public void acc_6(){
-		Unblock();
-	}
-
-//Conditions for State 7 : Node 15
-	public Boolean cond_7_0(){
-		return ((myRobotAPI.getBall().r > 0.2));
-	}
-
-	public void acc_7(){
-		LeadBallToGoal();
-	}
-
-//Conditions for State 8 : Node  4
-	public Boolean cond_8_0(){
-		return ((myRobotAPI.getPosition().y >= 0.758));
-	}
-
-	public void acc_8(){
-		avanzacentroarriba();
+	public void acc_3(){
+		Bloquea();
 	}
 
 
@@ -358,7 +268,7 @@ myRobotAPI.setSpeed(1.0);
 
 	}
  	public void Bloquea() { 
-
+ 		myRobotAPI.setSpeed(1.0);
 		myRobotAPI.blockClosest();
 
 	}

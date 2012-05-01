@@ -90,6 +90,7 @@ public class CompiBehaviour extends Behaviour {
 
 	@Override
 	public void onInit(RobotAPI r) {
+		r.setDisplayString("Compi");
 		//Initialize the stack with the first state 
 		stack = new Vector<State>();
 		stack.add(states.get(0));
@@ -109,13 +110,16 @@ public class CompiBehaviour extends Behaviour {
 		
 		//State 0 : Node  1 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[3];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_0_0";
 		e.transitions[0].state = 1;
 		e.transitions[1] = new Transition();
 		e.transitions[1].condition = "cond_0_1";
 		e.transitions[1].state = 2;
+		e.transitions[2] = new Transition();
+		e.transitions[2].condition = "cond_0_2";
+		e.transitions[2].state = 3;
 		e.actions = "acc_0";
 		states.add(e);
 
@@ -137,6 +141,15 @@ public class CompiBehaviour extends Behaviour {
 		e.actions = "acc_2";
 		states.add(e);
 
+		//State 3 : Node 13 
+		e = new State();
+		e.transitions = new Transition[1];
+		e.transitions[0] = new Transition();
+		e.transitions[0].condition = "cond_3_0";
+		e.transitions[0].state = 0;
+		e.actions = "acc_3";
+		states.add(e);
+
 
 	}
 	
@@ -149,6 +162,11 @@ public class CompiBehaviour extends Behaviour {
 //Conditions for State 0 : Node  1
 	public Boolean cond_0_1(){
 		return ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x >= 0.10) && (myRobotAPI.getBall().r < 0.03));
+	}
+
+//Conditions for State 0 : Node  1
+	public Boolean cond_0_2(){
+		return ((myRobotAPI.opponentBlocking() == true));
 	}
 
 	public void acc_0(){
@@ -171,6 +189,15 @@ public class CompiBehaviour extends Behaviour {
 
 	public void acc_2(){
 		LeadBallToGoal();
+	}
+
+//Conditions for State 3 : Node 13
+	public Boolean cond_3_0(){
+		return ((myRobotAPI.opponentBlocking() == false));
+	}
+
+	public void acc_3(){
+		Unblock();
 	}
 
 
@@ -207,6 +234,7 @@ double angle = myRobotAPI.getBall().t;
 // Cambiamos el ángulo del robot
 myRobotAPI.setSteerHeading(angle);
 // Ponemos la velocidad
+myRobotAPI.avoidCollisions();
 myRobotAPI.setSpeed(1.0);
 
 	}
@@ -239,6 +267,11 @@ myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
 	}
+ 	public void Bloquea() { 
+
+		myRobotAPI.blockClosest();
+
+	}
  	public void Wait() { 
 
 		myRobotAPI.setSpeed(0.0);
@@ -253,6 +286,7 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
+myRobotAPI.avoidCollisions();
 
 	}
  	public void pasar() { 
