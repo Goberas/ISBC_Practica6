@@ -156,12 +156,12 @@ public class CompiBehaviour extends Behaviour {
 	//Conditions and actions that was building based in the graph of de HFMS of the tool editor
 	//Conditions for State 0 : Node  1
 	public Boolean cond_0_0(){
-		return ((myRobotAPI.getBall().r <= 0.03) && ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x < 1.10) || (myRobotAPI.canKick() == false)));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x > 1.1) && (myRobotAPI.canKick() == true));
 	}
 
 //Conditions for State 0 : Node  1
 	public Boolean cond_0_1(){
-		return ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x >= 0.10) && (myRobotAPI.getBall().r < 0.03));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x <= 0.10) && (myRobotAPI.canKick() == true));
 	}
 
 //Conditions for State 0 : Node  1
@@ -175,7 +175,7 @@ public class CompiBehaviour extends Behaviour {
 
 //Conditions for State 1 : Node  9
 	public Boolean cond_1_0(){
-		return ((myRobotAPI.getBall().r > 0.03));
+		return ((myRobotAPI.canKick() == false));
 	}
 
 	public void acc_1(){
@@ -184,7 +184,7 @@ public class CompiBehaviour extends Behaviour {
 
 //Conditions for State 2 : Node  7
 	public Boolean cond_2_0(){
-		return ((myRobotAPI.getBall().r > 0.03));
+		return ((myRobotAPI.canKick() == false));
 	}
 
 	public void acc_2(){
@@ -259,6 +259,13 @@ myRobotAPI.setSteerHeading(dest.t);
 myRobotAPI.setSpeed(1.0);
 
 	}
+ 	public void bloqueacercano() { 
+
+		myRobotAPI.setSteerHeading(myRobotAPI.getClosestOpponent().t);
+myRobotAPI.setSpeed(1.0);
+
+
+	}
  	public void avanzacentroarriba() { 
 
 		Vec2 destino = new Vec2(0.0, 0.76);
@@ -270,6 +277,7 @@ myRobotAPI.setSpeed(1.0);
  	public void Bloquea() { 
 
 		myRobotAPI.blockClosest();
+myRobotAPI.kick();
 
 	}
  	public void Wait() { 
@@ -286,7 +294,6 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
-myRobotAPI.avoidCollisions();
 
 	}
  	public void pasar() { 

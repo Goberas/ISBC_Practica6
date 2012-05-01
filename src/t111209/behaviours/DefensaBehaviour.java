@@ -119,35 +119,20 @@ public class DefensaBehaviour extends Behaviour {
 
 		//State 1 : Node  1 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_1_0";
 		e.transitions[0].state = 2;
-		e.transitions[1] = new Transition();
-		e.transitions[1].condition = "cond_1_1";
-		e.transitions[1].state = 0;
 		e.actions = "acc_1";
 		states.add(e);
 
 		//State 2 : Node  2 
 		e = new State();
-		e.transitions = new Transition[2];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_2_0";
-		e.transitions[0].state = 3;
-		e.transitions[1] = new Transition();
-		e.transitions[1].condition = "cond_2_1";
-		e.transitions[1].state = 1;
-		e.actions = "acc_2";
-		states.add(e);
-
-		//State 3 : Node  5 
-		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_3_0";
-		e.transitions[0].state = 2;
-		e.actions = "acc_3";
+		e.transitions[0].condition = "cond_2_0";
+		e.transitions[0].state = 1;
+		e.actions = "acc_2";
 		states.add(e);
 
 
@@ -165,39 +150,20 @@ public class DefensaBehaviour extends Behaviour {
 
 //Conditions for State 1 : Node  1
 	public Boolean cond_1_0(){
-		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x <= 0) || (myRobotAPI.getBall().r < myRobotAPI.getOurGoal().r == true));
-	}
-
-//Conditions for State 1 : Node  1
-	public Boolean cond_1_1(){
-		return ((myRobotAPI.getOurGoal().r > 0.2) && (myRobotAPI.getBall().r < myRobotAPI.getOurGoal().r == false));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x <= 0) && (myRobotAPI.getBall().r >= 0.1));
 	}
 
 	public void acc_1(){
-		Bloquea();
+		bloqueacercano();
 	}
 
 //Conditions for State 2 : Node  2
 	public Boolean cond_2_0(){
-		return ((myRobotAPI.getBall().r <= 0.1));
-	}
-
-//Conditions for State 2 : Node  2
-	public Boolean cond_2_1(){
-		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0) && (myRobotAPI.getBall().r < myRobotAPI.getOurGoal().r == false));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0) || (myRobotAPI.getBall().r < 0.1));
 	}
 
 	public void acc_2(){
 		Iralapelota();
-	}
-
-//Conditions for State 3 : Node  5
-	public Boolean cond_3_0(){
-		return ((myRobotAPI.getBall().r > 0.1));
-	}
-
-	public void acc_3(){
-		Bloquea();
 	}
 
 
@@ -259,6 +225,13 @@ myRobotAPI.setSteerHeading(dest.t);
 myRobotAPI.setSpeed(1.0);
 
 	}
+ 	public void bloqueacercano() { 
+
+		myRobotAPI.setSteerHeading(myRobotAPI.getClosestOpponent().t);
+myRobotAPI.setSpeed(1.0);
+
+
+	}
  	public void avanzacentroarriba() { 
 
 		Vec2 destino = new Vec2(0.0, 0.76);
@@ -268,8 +241,9 @@ myRobotAPI.setSpeed(1.0);
 
 	}
  	public void Bloquea() { 
- 		myRobotAPI.setSpeed(1.0);
+
 		myRobotAPI.blockClosest();
+myRobotAPI.kick();
 
 	}
  	public void Wait() { 
@@ -286,7 +260,6 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
-myRobotAPI.avoidCollisions();
 
 	}
  	public void pasar() { 
