@@ -148,10 +148,13 @@ public class BuscadorBehaviour extends Behaviour {
 
 		//State 4 : Node 14 
 		e = new State();
-		e.transitions = new Transition[1];
+		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_4_0";
 		e.transitions[0].state = 6;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_4_1";
+		e.transitions[1].state = 7;
 		e.actions = "acc_4";
 		states.add(e);
 
@@ -160,11 +163,11 @@ public class BuscadorBehaviour extends Behaviour {
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_5_0";
-		e.transitions[0].state = 7;
+		e.transitions[0].state = 8;
 		e.actions = "acc_5";
 		states.add(e);
 
-		//State 6 : Node 15 
+		//State 6 : Node 18 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
@@ -173,13 +176,22 @@ public class BuscadorBehaviour extends Behaviour {
 		e.actions = "acc_6";
 		states.add(e);
 
-		//State 7 : Node  4 
+		//State 7 : Node 15 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_7_0";
-		e.transitions[0].state = 5;
+		e.transitions[0].state = 4;
 		e.actions = "acc_7";
+		states.add(e);
+
+		//State 8 : Node  4 
+		e = new State();
+		e.transitions = new Transition[1];
+		e.transitions[0] = new Transition();
+		e.transitions[0].condition = "cond_8_0";
+		e.transitions[0].state = 5;
+		e.actions = "acc_8";
 		states.add(e);
 
 
@@ -193,7 +205,7 @@ public class BuscadorBehaviour extends Behaviour {
 
 //Conditions for State 0 : Node  2
 	public Boolean cond_0_1(){
-		return ((myRobotAPI.getBall().r <= 0.15));
+		return ((myRobotAPI.getBall().r <= 0.2));
 	}
 
 	public void acc_0(){
@@ -211,7 +223,7 @@ stack.add(states.get(3));
 
 //Conditions for State 2 : Node 11
 	public Boolean cond_2_0(){
-		return ((myRobotAPI.getBall().r > 0.15));
+		return ((myRobotAPI.getBall().r > 0.2));
 	}
 
 	public void acc_2(){
@@ -229,7 +241,12 @@ stack.add(states.get(4));
 
 //Conditions for State 4 : Node 14
 	public Boolean cond_4_0(){
-		return ((myRobotAPI.canKick() == true));
+		return ((myRobotAPI.blocked() == false));
+	}
+
+//Conditions for State 4 : Node 14
+	public Boolean cond_4_1(){
+		return ((myRobotAPI.getBall().r <= 0.2));
 	}
 
 	public void acc_4(){
@@ -238,28 +255,37 @@ stack.add(states.get(4));
 
 //Conditions for State 5 : Node  5
 	public Boolean cond_5_0(){
-		return ((myRobotAPI.getPosition().y <= -0.758));
+		return ((myRobotAPI.getPosition().y <= -0.75));
 	}
 
 	public void acc_5(){
 		avanzacentroabajo();
 	}
 
-//Conditions for State 6 : Node 15
+//Conditions for State 6 : Node 18
 	public Boolean cond_6_0(){
-		return ((myRobotAPI.canKick() == false));
+		return ((myRobotAPI.blocked() == true));
 	}
 
 	public void acc_6(){
-		LeadBallToGoal();
+		Unblock();
 	}
 
-//Conditions for State 7 : Node  4
+//Conditions for State 7 : Node 15
 	public Boolean cond_7_0(){
-		return ((myRobotAPI.getPosition().y >= 0.758));
+		return ((myRobotAPI.getBall().r > 0.2));
 	}
 
 	public void acc_7(){
+		LeadBallToGoal();
+	}
+
+//Conditions for State 8 : Node  4
+	public Boolean cond_8_0(){
+		return ((myRobotAPI.getPosition().y >= 0.758));
+	}
+
+	public void acc_8(){
 		avanzacentroarriba();
 	}
 
@@ -343,6 +369,13 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
+
+	}
+ 	public void pasar() { 
+
+		Vec2 cercano = myRobotAPI.getClosestMate();
+myRobotAPI.passBall(cercano);
+myRobotAPI.setDisplayString("pasar");
 
 	}
  	public void BlockGoalkeeper() { 
