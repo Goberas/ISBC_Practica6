@@ -13,7 +13,7 @@ import teams.ucmTeam.Behaviour;
 import teams.ucmTeam.Message;
 import teams.ucmTeam.RobotAPI;
 
-public class BuscadorBehaviour extends Behaviour {
+public class DelanteroBehaviour extends Behaviour {
 	/**
 	 * Table for manage all state of the HFMS
 	 */
@@ -90,7 +90,7 @@ public class BuscadorBehaviour extends Behaviour {
 
 	@Override
 	public void onInit(RobotAPI r) {
-		r.setDisplayString("Buscador");
+		r.setDisplayString("Delantero");
 		//Initialize the stack with the first state 
 		stack = new Vector<State>();
 		stack.add(states.get(0));
@@ -108,31 +108,34 @@ public class BuscadorBehaviour extends Behaviour {
 		states = new Vector<State>();
 		State e;
 		
-		//State 0 : Node  2 
+		//State 0 : Node  1 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[3];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_0_0";
 		e.transitions[0].state = 1;
 		e.transitions[1] = new Transition();
 		e.transitions[1].condition = "cond_0_1";
 		e.transitions[1].state = 2;
+		e.transitions[2] = new Transition();
+		e.transitions[2].condition = "cond_0_2";
+		e.transitions[2].state = 3;
 		e.actions = "acc_0";
 		states.add(e);
 
-		//State 1 : Node 29 
+		//State 1 : Node  8 
 		e = new State();
 		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_1_0";
-		e.transitions[0].state = 0;
+		e.transitions[0].state = 4;
 		e.transitions[1] = new Transition();
 		e.transitions[1].condition = "cond_1_1";
-		e.transitions[1].state = 4;
+		e.transitions[1].state = 3;
 		e.actions = "acc_1";
 		states.add(e);
 
-		//State 2 : Node  1 
+		//State 2 : Node 24 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
@@ -141,25 +144,28 @@ public class BuscadorBehaviour extends Behaviour {
 		e.actions = "acc_2";
 		states.add(e);
 
-		//State 3 : Node  3 
+		//State 3 : Node 20 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_3_0";
-		e.transitions[0].state = 6;
+		e.transitions[0].state = 0;
 		e.actions = "acc_3";
 		states.add(e);
 
-		//State 4 : Node 30 
+		//State 4 : Node  2 
 		e = new State();
-		e.transitions = new Transition[1];
+		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_4_0";
-		e.transitions[0].state = 1;
+		e.transitions[0].state = 3;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_4_1";
+		e.transitions[1].state = 1;
 		e.actions = "acc_4";
 		states.add(e);
 
-		//State 5 : Node 25 
+		//State 5 : Node 17 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
@@ -168,7 +174,7 @@ public class BuscadorBehaviour extends Behaviour {
 		e.actions = "acc_5";
 		states.add(e);
 
-		//State 6 : Node  5 
+		//State 6 : Node  4 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
@@ -177,7 +183,7 @@ public class BuscadorBehaviour extends Behaviour {
 		e.actions = "acc_6";
 		states.add(e);
 
-		//State 7 : Node 26 
+		//State 7 : Node 16 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
@@ -186,7 +192,7 @@ public class BuscadorBehaviour extends Behaviour {
 		e.actions = "acc_7";
 		states.add(e);
 
-		//State 8 : Node  4 
+		//State 8 : Node  5 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
@@ -199,62 +205,71 @@ public class BuscadorBehaviour extends Behaviour {
 	}
 	
 	//Conditions and actions that was building based in the graph of de HFMS of the tool editor
-	//Conditions for State 0 : Node  2
+	//Conditions for State 0 : Node  1
 	public Boolean cond_0_0(){
-		return ((myRobotAPI.getBall().r <= 0.25));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0) && (myRobotAPI.getBall().r > 0.15));
 	}
 
-//Conditions for State 0 : Node  2
+//Conditions for State 0 : Node  1
 	public Boolean cond_0_1(){
-		return ((myRobotAPI.blocked() == true));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x < 0));
+	}
+
+//Conditions for State 0 : Node  1
+	public Boolean cond_0_2(){
+		return ((myRobotAPI.getBall().r <= 0.15) && (-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0));
 	}
 
 	public void acc_0(){
-stack.add(states.get(3));
 	}
 
-//Conditions for State 1 : Node 29
+//Conditions for State 1 : Node  8
 	public Boolean cond_1_0(){
-		return ((myRobotAPI.getBall().r > 0.25));
+		return ((myRobotAPI.getOpponentsGoal().r <= 0.1) && (myRobotAPI.getBall().r > 0.15));
 	}
 
-//Conditions for State 1 : Node 29
+//Conditions for State 1 : Node  8
 	public Boolean cond_1_1(){
-		return ((myRobotAPI.opponentBlocking() == true));
+		return ((myRobotAPI.getBall().r <= 0.15));
 	}
 
 	public void acc_1(){
-stack.add(states.get(5));
+		Iraporteriacontraria();
 	}
 
-//Conditions for State 2 : Node  1
+//Conditions for State 2 : Node 24
 	public Boolean cond_2_0(){
-		return ((myRobotAPI.blocked() == false));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0));
 	}
 
 	public void acc_2(){
-		Unblock();
+		bloqueacercano();
 	}
 
-//Conditions for State 3 : Node  3
+//Conditions for State 3 : Node 20
 	public Boolean cond_3_0(){
-		return ((myRobotAPI.getPosition().r < 0.1));
+		return ((myRobotAPI.getBall().r > 0.15));
 	}
 
 	public void acc_3(){
-		GoToCenter();
+stack.add(states.get(5));
 	}
 
-//Conditions for State 4 : Node 30
+//Conditions for State 4 : Node  2
 	public Boolean cond_4_0(){
-		return ((myRobotAPI.opponentBlocking() == false));
+		return ((myRobotAPI.getBall().r <= 0.15));
+	}
+
+//Conditions for State 4 : Node  2
+	public Boolean cond_4_1(){
+		return ((myRobotAPI.getOpponentsGoal().r > 0.1) && (myRobotAPI.getBall().r > 0.15));
 	}
 
 	public void acc_4(){
-		Unblock();
+stack.add(states.get(6));
 	}
 
-//Conditions for State 5 : Node 25
+//Conditions for State 5 : Node 17
 	public Boolean cond_5_0(){
 		return ((myRobotAPI.canKick() == false));
 	}
@@ -263,16 +278,16 @@ stack.add(states.get(5));
 		Patear();
 	}
 
-//Conditions for State 6 : Node  5
+//Conditions for State 6 : Node  4
 	public Boolean cond_6_0(){
-		return ((myRobotAPI.getPosition().y <= -0.60));
+		return ((myRobotAPI.getPosition().y >= 0.45));
 	}
 
 	public void acc_6(){
-		avanzacentroabajo();
+		muevahacaiarriba();
 	}
 
-//Conditions for State 7 : Node 26
+//Conditions for State 7 : Node 16
 	public Boolean cond_7_0(){
 		return ((myRobotAPI.canKick() == true));
 	}
@@ -281,13 +296,13 @@ stack.add(states.get(5));
 		Iralapelota();
 	}
 
-//Conditions for State 8 : Node  4
+//Conditions for State 8 : Node  5
 	public Boolean cond_8_0(){
-		return ((myRobotAPI.getPosition().y >= 0.60));
+		return ((myRobotAPI.getPosition().y <= -0.45));
 	}
 
 	public void acc_8(){
-		avanzacentroarriba();
+		muevehaciaabajo();
 	}
 
 
@@ -342,7 +357,7 @@ myRobotAPI.setSpeed(1.0);
  	public void avanzacentroabajo() { 
 
 		Vec2 destino = new Vec2(0.0, -0.76);
-//destino.sub(myRobotAPI.getPosition());
+destino.add(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
@@ -364,7 +379,7 @@ myRobotAPI.setSpeed(1.0);
  	public void avanzacentroarriba() { 
 
 		Vec2 destino = new Vec2(0.0, 0.76);
-//destino.sub(myRobotAPI.getPosition());
+destino.add(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
