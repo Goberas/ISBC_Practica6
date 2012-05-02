@@ -44,32 +44,32 @@
       <ij:sensor nombre="getMyScore" tipo="NUMERIC" categoria="NATURAL" comando="myRobotAPI.getMyScore()">
         <ij:descripcion>Devuelve el número de goles marcados por el equipo del jugador</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getOurGoalY" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().y">
-        <ij:descripcion>Devuelve la componente Y del vector getOurGoal</ij:descripcion>
-      </ij:sensor>
       <ij:sensor nombre="getOpponentsGoal" tipo="ACTUATOR" categoria="SINTETICO" comando="myRobotAPI.getOpponentsGoal()">
         <ij:descripcion>Devuelve un Vec2 EGOCÉNTRICO que apunta hacia la portería contraria</ij:descripcion>
+      </ij:sensor>
+      <ij:sensor nombre="getOurGoalY" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().y">
+        <ij:descripcion>Devuelve la componente Y del vector getOurGoal</ij:descripcion>
       </ij:sensor>
       <ij:sensor nombre="getPlayerRadius" tipo="ACTUATOR" categoria="NATURAL" comando="myRobotAPI.getPlayerRadius()">
         <ij:descripcion>Devuelve el radio del robot</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getOurGoalT" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().t">
-        <ij:descripcion>Devuelve el ángulo del vector getOurGoal</ij:descripcion>
-      </ij:sensor>
       <ij:sensor nombre="getBallT" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getBall().t">
         <ij:descripcion>Devuelve el ángulo del vector getBall</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getOurGoalR" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().r">
-        <ij:descripcion>Devuelve la distancia del jugador a su portería (la longitud del vector getOurGoal)</ij:descripcion>
+      <ij:sensor nombre="getOurGoalT" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().t">
+        <ij:descripcion>Devuelve el ángulo del vector getOurGoal</ij:descripcion>
       </ij:sensor>
       <ij:sensor nombre="getBallR" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getBall().r">
         <ij:descripcion>Devuelve la distancia del jugador a la pelota (la longitud del vector getBall)</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getOurGoalX" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().x">
-        <ij:descripcion>Devuelve la componente X del vector getOurGoal</ij:descripcion>
+      <ij:sensor nombre="getOurGoalR" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().r">
+        <ij:descripcion>Devuelve la distancia del jugador a su portería (la longitud del vector getOurGoal)</ij:descripcion>
       </ij:sensor>
       <ij:sensor nombre="toEgocentricalCoordinates" tipo="ACTUATOR" categoria="NATURAL" comando="myRobotAPI.toEgocentricalCoordinates(Vec2)">
         <ij:descripcion>Transforma un Vec2 en coordenadas del campo a coordenadas egocéntricas</ij:descripcion>
+      </ij:sensor>
+      <ij:sensor nombre="getOurGoalX" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getOurGoal().x">
+        <ij:descripcion>Devuelve la componente X del vector getOurGoal</ij:descripcion>
       </ij:sensor>
       <ij:sensor nombre="getClosestOpponent" tipo="ACTUATOR" categoria="SINTETICO" comando="myRobotAPI.getClosestOpponent()">
         <ij:descripcion>Devuelve un Vec2 EGOCÉNTRICO que apunta hacia el oponente más cercano</ij:descripcion>
@@ -146,14 +146,14 @@
       <ij:sensor nombre="getTeammates" tipo="ACTUATOR" categoria="SINTETICO" comando="myRobotAPI.getTeammates()">
         <ij:descripcion>Devuelve un array de Vec2 EGOCÉNTRICOS que apuntan a cada uno de los compañeros de equipo</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getClosestMateT" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getClosestMate().t">
-        <ij:descripcion>Devuelve el ángulo del vector getClosestMate</ij:descripcion>
+      <ij:sensor nombre="getTimeStamp" tipo="NUMERIC" categoria="NATURAL" comando="myRobotAPI.getTimeStamp()">
+        <ij:descripcion>Devuelve el tiempo transcurrido desde el comienzo de la simulación</ij:descripcion>
       </ij:sensor>
       <ij:sensor nombre="getSteerHeading" tipo="NUMERIC" categoria="NATURAL" comando="myRobotAPI.getSteerHeading()">
         <ij:descripcion>Devuelve el ángulo en radianes hacia el que está apuntando el robot</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getTimeStamp" tipo="NUMERIC" categoria="NATURAL" comando="myRobotAPI.getTimeStamp()">
-        <ij:descripcion>Devuelve el tiempo transcurrido desde el comienzo de la simulación</ij:descripcion>
+      <ij:sensor nombre="getClosestMateT" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getClosestMate().t">
+        <ij:descripcion>Devuelve el ángulo del vector getClosestMate</ij:descripcion>
       </ij:sensor>
       <ij:sensor nombre="getClosestMateR" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getClosestMate().r">
         <ij:descripcion>Devuelve la distancia del jugador a su compañero más cercano (la longitud del vector getClosestMate)</ij:descripcion>
@@ -170,26 +170,26 @@
       <ij:sensor nombre="closestToBall" tipo="BOOLEAN" categoria="NATURAL" comando="myRobotAPI.closestToBall()">
         <ij:descripcion>Comprueba si es el robot más cercano a la pelota</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getGoalkeeperY" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getGoalkeeper().y">
-        <ij:descripcion>Devuelve la componente Y del vector getGoalkeeper</ij:descripcion>
-      </ij:sensor>
       <ij:sensor nombre="alignedToBallandGoal" tipo="BOOLEAN" categoria="NATURAL" comando="myRobotAPI.alignedToBallandGoal()">
         <ij:descripcion>Comprueba si existe una línea recta entre el robot y la portería contraria, pasando por la pelota</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getGoalkeeperX" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getGoalkeeper().x">
-        <ij:descripcion>Devuelve la componente X del vector getGoalkeeper</ij:descripcion>
+      <ij:sensor nombre="getGoalkeeperY" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getGoalkeeper().y">
+        <ij:descripcion>Devuelve la componente Y del vector getGoalkeeper</ij:descripcion>
       </ij:sensor>
       <ij:sensor nombre="getFieldSide" tipo="NUMERIC" categoria="NATURAL" comando="myRobotAPI.getFieldSide()">
         <ij:descripcion>Devuelve -1 si el equipo juega en el campo de la izquierda y 1 si juega en el de la derecha</ij:descripcion>
       </ij:sensor>
+      <ij:sensor nombre="getGoalkeeperX" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getGoalkeeper().x">
+        <ij:descripcion>Devuelve la componente X del vector getGoalkeeper</ij:descripcion>
+      </ij:sensor>
       <ij:sensor nombre="normalizedPositionX" tipo="NUMERIC" categoria="SINTETICO" comando="-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x">
         <ij:descripcion>Devuelve la coordenada x del vector de posición normalizado del jugador. En el vector de posición normalizado, las x positivas se encuentran siempre en el campo contrario al del jugador y las negativas en su propio campo. Por lo tanto, el valor de este sensor será negativo si el jugador está en su campo y positivo si está en campo contrario</ij:descripcion>
       </ij:sensor>
-      <ij:sensor nombre="getGoalkeeperT" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getGoalkeeper().t">
-        <ij:descripcion>Devuelve el ángulo del vector getGoalkeeper</ij:descripcion>
-      </ij:sensor>
       <ij:sensor nombre="getMatchRemainingTime" tipo="NUMERIC" categoria="NATURAL" comando="myRobotAPI.getMatchRemainingTime()">
         <ij:descripcion>Devuelve el tiempo restante de partido en milisegundos</ij:descripcion>
+      </ij:sensor>
+      <ij:sensor nombre="getGoalkeeperT" tipo="NUMERIC" categoria="SINTETICO" comando="myRobotAPI.getGoalkeeper().t">
+        <ij:descripcion>Devuelve el ángulo del vector getGoalkeeper</ij:descripcion>
       </ij:sensor>
     </ij:sensores>
     <ij:actuadores>
@@ -229,8 +229,8 @@
     </ij:actuadores>
   </ij:interfazJuego>
   <prop:propiedades>
-    <prop:propiedad nombre="Defender" min="0.0" max="5.0" valDefecto="2.0" />
     <prop:propiedad nombre="Attacker" min="0.0" max="5.0" valDefecto="3.0" />
+    <prop:propiedad nombre="Defender" min="0.0" max="5.0" valDefecto="2.0" />
     <prop:propiedad nombre="Mobility" min="0.0" max="5.0" valDefecto="4.0" />
     <prop:propiedad nombre="Goalkeeper" min="0.0" max="1.0" valDefecto="1.0" />
   </prop:propiedades>
@@ -243,6 +243,8 @@ destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="busca pelota perdida" />
+    <bb:basicBehaviourDefinition name="Ir a porteria contraria">myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
+myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="Ir a la pelota">// Sacamos el ángulo de la pelota
 double angle = myRobotAPI.getBall().t;
 // Cambiamos el ángulo del robot
@@ -252,7 +254,7 @@ myRobotAPI.avoidCollisions();
 myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="Unblock">myRobotAPI.avoidCollisions();</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="avanza centro abajo">Vec2 destino = new Vec2(0.0, -0.76);
-destino.sub(myRobotAPI.getPosition());
+//destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="Cover Goal">Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
@@ -262,6 +264,14 @@ myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="bloquea cercano">myRobotAPI.setSteerHeading(myRobotAPI.getClosestOpponent().t);
 myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="avanza centro arriba">Vec2 destino = new Vec2(0.0, 0.76);
+//destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
+    <bb:basicBehaviourDefinition name="mueva hacai arriba">Vec2 destino = new Vec2(0.0, 0.50);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
+    <bb:basicBehaviourDefinition name="pulular">Vec2 destino = new Vec2(0.0, 0.0);
 destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
@@ -269,12 +279,16 @@ myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
 myRobotAPI.kick();</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="Wait">myRobotAPI.setSpeed(0.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="Patear">myRobotAPI.kick();</bb:basicBehaviourDefinition>
+    <bb:basicBehaviourDefinition name="mueve hacia abajo">Vec2 destino = new Vec2(0.0, -0.50);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="Walk Towards Goal">myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);</bb:basicBehaviourDefinition>
+    <bb:basicBehaviourDefinition name="Block Goalkeeper">myRobotAPI.blockGoalKeeper();</bb:basicBehaviourDefinition>
     <bb:basicBehaviourDefinition name="pasar">Vec2 cercano = myRobotAPI.getClosestMate();
 myRobotAPI.passBall(cercano);
 myRobotAPI.setDisplayString("pasar");</bb:basicBehaviourDefinition>
-    <bb:basicBehaviourDefinition name="Block Goalkeeper">myRobotAPI.blockGoalKeeper();</bb:basicBehaviourDefinition>
   </bb:basicBehaviours>
 </modeloJuego>
 

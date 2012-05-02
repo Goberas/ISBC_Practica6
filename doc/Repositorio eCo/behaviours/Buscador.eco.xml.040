@@ -140,7 +140,7 @@
               <beh:aggregation aggregator="AND">
                 <condition comparator="&gt;=">
                   <left type="sensor" value="getPositionY" />
-                  <right type="constant" value="0.60" />
+                  <right type="constant" value="0.758" />
                 </condition>
               </beh:aggregation>
             </beh:condition>
@@ -150,7 +150,7 @@
               <beh:aggregation aggregator="AND">
                 <condition comparator="&lt;=">
                   <left type="sensor" value="getPositionY" />
-                  <right type="constant" value="-0.60" />
+                  <right type="constant" value="-0.75" />
                 </condition>
               </beh:aggregation>
             </beh:condition>
