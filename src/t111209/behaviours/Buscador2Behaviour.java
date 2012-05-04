@@ -13,7 +13,7 @@ import teams.ucmTeam.Behaviour;
 import teams.ucmTeam.Message;
 import teams.ucmTeam.RobotAPI;
 
-public class BuscadorBehaviour extends Behaviour {
+public class Buscador2Behaviour extends Behaviour {
 	/**
 	 * Table for manage all state of the HFMS
 	 */
@@ -107,135 +107,117 @@ public class BuscadorBehaviour extends Behaviour {
 		states = new Vector<State>();
 		State e;
 		
-		//State 0 : Node  2 
-		e = new State();
-		e.transitions = new Transition[2];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_0_0";
-		e.transitions[0].state = 1;
-		e.transitions[1] = new Transition();
-		e.transitions[1].condition = "cond_0_1";
-		e.transitions[1].state = 2;
-		e.actions = "acc_0";
-		states.add(e);
-
-		//State 1 : Node  1 
+		//State 0 : Node  1 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
+		e.transitions[0].condition = "cond_0_0";
+		e.transitions[0].state = 1;
+		e.actions = "acc_0";
+		states.add(e);
+
+		//State 1 : Node  2 
+		e = new State();
+		e.transitions = new Transition[3];
+		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_1_0";
-		e.transitions[0].state = 0;
+		e.transitions[0].state = 2;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_1_1";
+		e.transitions[1].state = 3;
+		e.transitions[2] = new Transition();
+		e.transitions[2].condition = "cond_1_2";
+		e.transitions[2].state = 0;
 		e.actions = "acc_1";
 		states.add(e);
 
-		//State 2 : Node 43 
+		//State 2 : Node  3 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_2_0";
 		e.transitions[0].state = 1;
-		e.transitions[1] = new Transition();
-		e.transitions[1].condition = "cond_2_1";
-		e.transitions[1].state = 0;
 		e.actions = "acc_2";
 		states.add(e);
 
-		//State 3 : Node  3 
+		//State 3 : Node 13 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_3_0";
-		e.transitions[0].state = 5;
+		e.transitions[0].state = 1;
 		e.actions = "acc_3";
 		states.add(e);
 
-		//State 4 : Node 40 
+		//State 4 : Node 10 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_4_0";
-		e.transitions[0].state = 6;
+		e.transitions[0].state = 5;
 		e.actions = "acc_4";
 		states.add(e);
 
-		//State 5 : Node  5 
+		//State 5 : Node  9 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_5_0";
-		e.transitions[0].state = 7;
-		e.actions = "acc_5";
-		states.add(e);
-
-		//State 6 : Node 39 
-		e = new State();
-		e.transitions = new Transition[1];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_6_0";
 		e.transitions[0].state = 4;
-		e.actions = "acc_6";
-		states.add(e);
-
-		//State 7 : Node  4 
-		e = new State();
-		e.transitions = new Transition[1];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_7_0";
-		e.transitions[0].state = 5;
-		e.actions = "acc_7";
+		e.actions = "acc_5";
 		states.add(e);
 
 
 	}
 	
 	//Conditions and actions that was building based in the graph of de HFMS of the tool editor
-	//Conditions for State 0 : Node  2
+	//Conditions for State 0 : Node  1
 	public Boolean cond_0_0(){
-		return ((myRobotAPI.blocked() == true));
-	}
-
-//Conditions for State 0 : Node  2
-	public Boolean cond_0_1(){
-		return ((myRobotAPI.getBall().r <= 0.35));
+		return ((myRobotAPI.getPosition().r <= 0.2));
 	}
 
 	public void acc_0(){
-stack.add(states.get(3));
-	}
-
-//Conditions for State 1 : Node  1
-	public Boolean cond_1_0(){
-		return ((myRobotAPI.blocked() == false));
-	}
-
-	public void acc_1(){
-		Unblock();
-	}
-
-//Conditions for State 2 : Node 43
-	public Boolean cond_2_0(){
-		return ((myRobotAPI.opponentBlocking() == true));
-	}
-
-//Conditions for State 2 : Node 43
-	public Boolean cond_2_1(){
-		return ((myRobotAPI.getBall().r > 0.35));
-	}
-
-	public void acc_2(){
-stack.add(states.get(4));
-	}
-
-//Conditions for State 3 : Node  3
-	public Boolean cond_3_0(){
-		return ((myRobotAPI.getPosition().r < 0.1));
-	}
-
-	public void acc_3(){
 		GoToCenter();
 	}
 
-//Conditions for State 4 : Node 40
+//Conditions for State 1 : Node  2
+	public Boolean cond_1_0(){
+		return ((myRobotAPI.opponentBlocking() == true));
+	}
+
+//Conditions for State 1 : Node  2
+	public Boolean cond_1_1(){
+		return ((myRobotAPI.getBall().r <= 0.5));
+	}
+
+//Conditions for State 1 : Node  2
+	public Boolean cond_1_2(){
+		return ((myRobotAPI.getPosition().r > 0.2));
+	}
+
+	public void acc_1(){
+		pulular();
+	}
+
+//Conditions for State 2 : Node  3
+	public Boolean cond_2_0(){
+		return ((myRobotAPI.opponentBlocking() == false));
+	}
+
+	public void acc_2(){
+		Unblock();
+	}
+
+//Conditions for State 3 : Node 13
+	public Boolean cond_3_0(){
+		return ((myRobotAPI.getBall().r > 0.5));
+	}
+
+	public void acc_3(){
+stack.add(states.get(4));
+	}
+
+//Conditions for State 4 : Node 10
 	public Boolean cond_4_0(){
 		return ((myRobotAPI.canKick() == false));
 	}
@@ -244,31 +226,13 @@ stack.add(states.get(4));
 		apuntarytirar();
 	}
 
-//Conditions for State 5 : Node  5
+//Conditions for State 5 : Node  9
 	public Boolean cond_5_0(){
-		return ((myRobotAPI.getPosition().y <= -0.60));
-	}
-
-	public void acc_5(){
-		avanzacentroabajo();
-	}
-
-//Conditions for State 6 : Node 39
-	public Boolean cond_6_0(){
 		return ((myRobotAPI.canKick() == true));
 	}
 
-	public void acc_6(){
+	public void acc_5(){
 		Iralapelota();
-	}
-
-//Conditions for State 7 : Node  4
-	public Boolean cond_7_0(){
-		return ((myRobotAPI.getPosition().y >= 0.60));
-	}
-
-	public void acc_7(){
-		avanzacentroarriba();
 	}
 
 

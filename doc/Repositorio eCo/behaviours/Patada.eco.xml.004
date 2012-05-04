@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beh:compCompuesto xmlns:beh="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Patada" descripcion="">
+  <beh:listaPropiedades>
+    <beh:propiedad nombre="Attacker" valor="3.0" />
+    <beh:propiedad nombre="Defender" valor="2.0" />
+    <beh:propiedad nombre="Mobility" valor="4.0" />
+    <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+  </beh:listaPropiedades>
+  <beh:nodos>
+    <beh:nodo id="2" inicial="false">
+      <beh:vista x="453" y="36" />
+    </beh:nodo>
+    <beh:nodo id="1" inicial="true">
+      <beh:vista x="219" y="129" />
+    </beh:nodo>
+  </beh:nodos>
+  <beh:aristas>
+    <beh:arista id="4" origen="2" destino="1" descripcion="">
+      <beh:condition />
+    </beh:arista>
+    <beh:arista id="3" origen="1" destino="2" descripcion="">
+      <beh:condition />
+    </beh:arista>
+  </beh:aristas>
+</beh:compCompuesto>
+

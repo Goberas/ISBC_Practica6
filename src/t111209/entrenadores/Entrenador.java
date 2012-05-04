@@ -2,6 +2,7 @@ package t111209.entrenadores;
 
 import EDU.gatech.cc.is.util.Vec2;
 import t111209.behaviours.Blocker;
+import t111209.behaviours.Buscador2Behaviour;
 import t111209.behaviours.BuscadorBehaviour;
 import t111209.behaviours.CompiBehaviour;
 import t111209.behaviours.DefensaBehaviour;
@@ -72,7 +73,7 @@ public class Entrenador extends TeamManager {
 		return new Behaviour[] {new CompiBehaviour(), 		//0
 								new DefensaBehaviour(), 	//1
 								new PorteroBehaviour(),		//2
-								new BuscadorBehaviour(),	//3
+								new Buscador2Behaviour(),	//3
 								new DelanteroBehaviour()};	//4
 		
 	}
