@@ -570,6 +570,1673 @@
       </es:newEdge>
     </es:EditOperation>
   </es:session>
-  <es:session id="3" timestamp="20120502-23:06:16.310" />
+  <es:session id="3" timestamp="20120502-23:06:16.310">
+    <es:EditOperation timestamp="20120511-14:06:41.694" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="21">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="21" origen="2" destino="20" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="21" origen="2" destino="20" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:06:52.192" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="22">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="22" origen="1" destino="20" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="22" origen="1" destino="20" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:07:09.793" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="28">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="28" origen="2" destino="8" descripcion="lejos de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.1" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="28" origen="2" destino="8" descripcion="lejos de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.1" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:07:25.317" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="10">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="2" descripcion="cerca de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.1" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="2" descripcion="cerca de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.1" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:08:42.495" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="10">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="2" descripcion="cerca de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.1" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="2" descripcion="cerca de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:08:54.601" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="28">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="28" origen="2" destino="8" descripcion="lejos de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.1" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="28" origen="2" destino="8" descripcion="lejos de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:10:55.764" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Delantero" parentId="MAIN" id="37">
+      <compCompuesto xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Patada2" descripcion="">
+        <listaPropiedades>
+          <propiedad nombre="Defender" valor="2.0" />
+          <propiedad nombre="Attacker" valor="3.0" />
+          <propiedad nombre="Mobility" valor="4.0" />
+          <propiedad nombre="Goalkeeper" valor="1.0" />
+        </listaPropiedades>
+        <nodos>
+          <nodo id="34" inicial="true">
+            <compAtomico nombre="apuntar y tirar" descripcion="">
+              <listaPropiedades>
+                <propiedad nombre="Defender" valor="2.0" />
+                <propiedad nombre="Attacker" valor="3.0" />
+                <propiedad nombre="Mobility" valor="4.0" />
+                <propiedad nombre="Goalkeeper" valor="1.0" />
+              </listaPropiedades>
+              <basicBehaviour name="apuntar y tirar" />
+            </compAtomico>
+            <vista x="424" y="352" />
+          </nodo>
+          <nodo id="33" inicial="false">
+            <compAtomico nombre="Ir a la pelota" descripcion="">
+              <listaPropiedades>
+                <propiedad nombre="Defender" valor="2.0" />
+                <propiedad nombre="Attacker" valor="3.0" />
+                <propiedad nombre="Mobility" valor="4.0" />
+                <propiedad nombre="Goalkeeper" valor="1.0" />
+              </listaPropiedades>
+              <basicBehaviour name="Ir a la pelota" />
+            </compAtomico>
+            <vista x="374" y="187" />
+          </nodo>
+        </nodos>
+        <aristas>
+          <arista id="36" origen="34" destino="33" descripcion="no puedo tirar">
+            <condition>
+              <aggregation aggregator="AND">
+                <condition xmlns="" comparator="==">
+                  <left type="sensor" value="canKick" />
+                  <right type="constant" value="false" />
+                </condition>
+              </aggregation>
+            </condition>
+          </arista>
+          <arista id="35" origen="33" destino="34" descripcion="puede tirar">
+            <condition>
+              <aggregation aggregator="AND">
+                <condition xmlns="" comparator="==">
+                  <left type="sensor" value="canKick" />
+                  <right type="constant" value="true" />
+                </condition>
+              </aggregation>
+            </condition>
+          </arista>
+        </aristas>
+      </compCompuesto>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:11:02.164" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="38" from="8" to="37" />
+    <es:EditOperation timestamp="20120511-14:11:04.996" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="39" from="37" to="8" />
+    <es:EditOperation timestamp="20120511-14:11:28.359" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="10">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="2" descripcion="cerca de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="2" descripcion="cerca de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:13:33.003" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="38">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:14:33.378" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="39">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="39" origen="37" destino="8" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="39" origen="37" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:15:10.659" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="28">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="28" origen="2" destino="8" descripcion="lejos de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="28" origen="2" destino="8" descripcion="lejos de la porteria y lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:15:59.192" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="39">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="39" origen="37" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="39" origen="37" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:16:09.485" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="38">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:16:42.302" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="40" from="37" to="20" />
+    <es:EditOperation timestamp="20120511-14:17:52.915" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="40">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="40" origen="37" destino="20" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="40" origen="37" destino="20" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar arista">
+      <es:EditOperation timestamp="20120511-14:17:57.628" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="40" />
+    </es:CompoundOperation>
+    <es:EditOperation timestamp="20120511-14:18:04.798" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="41" from="37" to="20" />
+    <es:EditOperation timestamp="20120511-14:18:32.837" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="41">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="41" origen="37" destino="20" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="41" origen="37" destino="20" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar nodo">
+      <es:EditOperation timestamp="20120511-14:18:37.416" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="21" />
+      <es:EditOperation timestamp="20120511-14:18:37.417" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="10" />
+      <es:EditOperation timestamp="20120511-14:18:37.417" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="28" />
+      <es:EditOperation timestamp="20120511-14:18:37.417" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_NODE" parentBehaviour="Delantero" parentId="MAIN" id="2" />
+    </es:CompoundOperation>
+    <es:EditOperation timestamp="20120511-14:19:21.044" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="39">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="39" origen="37" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="39" origen="37" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:19:26.604" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="38">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:22:54.110" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Delantero" parentId="MAIN" id="42" />
+    <es:EditOperation timestamp="20120511-14:23:17.425" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_NODE" parentBehaviour="Delantero" parentId="MAIN" id="42">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="pulular" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="pulular" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:23:21.292" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="43" from="8" to="42" />
+    <es:EditOperation timestamp="20120511-14:23:23.090" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="44" from="42" to="8" />
+    <es:EditOperation timestamp="20120511-14:23:35.920" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="45" from="42" to="20" />
+    <es:EditOperation timestamp="20120511-14:24:08.071" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="45">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="45" origen="42" destino="20" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="45" origen="42" destino="20" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:25:56.952" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="44">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="44" origen="42" destino="8" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="44" origen="42" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:27:12.913" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="43">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="43" origen="8" destino="42" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="43" origen="8" destino="42" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:28:18.234" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="46" from="42" to="37" />
+    <es:EditOperation timestamp="20120511-14:28:49.360" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="46">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:29:24.401" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="23">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="23" origen="8" destino="20" descripcion="cerca de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="23" origen="8" destino="20" descripcion="cerca de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:29:27.292" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="46">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:29:31.502" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="23">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="23" origen="8" destino="20" descripcion="cerca de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="23" origen="8" destino="20" descripcion="cerca de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:29:59.322" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="38">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar arista">
+      <es:EditOperation timestamp="20120511-14:30:03.212" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="39" />
+    </es:CompoundOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar arista">
+      <es:EditOperation timestamp="20120511-14:30:09.537" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="23" />
+    </es:CompoundOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar arista">
+      <es:EditOperation timestamp="20120511-14:30:22.908" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="41" />
+    </es:CompoundOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar arista">
+      <es:EditOperation timestamp="20120511-14:30:26.941" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="45" />
+    </es:CompoundOperation>
+    <es:EditOperation timestamp="20120511-14:30:50.017" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Delantero" parentId="MAIN" id="47" />
+    <es:EditOperation timestamp="20120511-14:30:55.055" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="48" from="47" to="47" />
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar nodo">
+      <es:EditOperation timestamp="20120511-14:31:09.621" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="48" />
+      <es:EditOperation timestamp="20120511-14:31:09.621" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_NODE" parentBehaviour="Delantero" parentId="MAIN" id="47" />
+    </es:CompoundOperation>
+    <es:EditOperation timestamp="20120511-14:31:19.126" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="49" from="1" to="37" />
+    <es:EditOperation timestamp="20120511-14:32:15.961" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="49">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar nodo">
+      <es:EditOperation timestamp="20120511-14:32:34.559" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="22" />
+      <es:EditOperation timestamp="20120511-14:32:34.560" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="27" />
+      <es:EditOperation timestamp="20120511-14:32:34.560" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_NODE" parentBehaviour="Delantero" parentId="MAIN" id="20" />
+    </es:CompoundOperation>
+    <es:EditOperation timestamp="20120511-14:32:38.126" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="50" from="37" to="1" />
+    <es:EditOperation timestamp="20120511-14:33:10.017" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="50">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:33:14.143" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="49">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:35:53.566" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_NODE" parentBehaviour="Delantero" parentId="MAIN" id="42">
+      <es:oldContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="pulular" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="pulular" />
+        </compAtomico>
+      </es:oldContent>
+      <es:newContent>
+        <compCompuesto xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Pulular" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <nodos />
+        </compCompuesto>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:36:12.233" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Pulular" parentId="42" id="51" />
+    <es:EditOperation timestamp="20120511-14:36:12.702" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Pulular" parentId="42" id="52" />
+    <es:EditOperation timestamp="20120511-14:36:15.157" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Pulular" parentId="42" id="53" from="51" to="52" />
+    <es:EditOperation timestamp="20120511-14:36:17.214" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Pulular" parentId="42" id="54" from="52" to="51" />
+    <es:EditOperation timestamp="20120511-14:37:35.549" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_NODE" parentBehaviour="Pulular" parentId="42" id="51">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="mueva hacai arriba" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="mueva hacai arriba" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:37:52.155" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_NODE" parentBehaviour="Pulular" parentId="42" id="52">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="mueve hacia abajo" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="mueve hacia abajo" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:39:49.056" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Pulular" parentId="42" id="53">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="53" origen="51" destino="52" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="53" origen="51" destino="52" descripcion="estoy arriba">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="0.7" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:40:09.374" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Pulular" parentId="42" id="54">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="54" origen="52" destino="51" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="54" origen="52" destino="51" descripcion="">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="0.7" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:40:24.909" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Pulular" parentId="42" id="54">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="54" origen="52" destino="51" descripcion="">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="0.7" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="54" origen="52" destino="51" descripcion="estoy abajo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="-0.7" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:20.395" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="9">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:31.078" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="9">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.15" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:36.226" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="49">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:38.086" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="50">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:42.157" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="25">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="25" origen="1" destino="24" descripcion="pelota en mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="25" origen="1" destino="24" descripcion="pelota en mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:49.715" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="26">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="26" origen="24" destino="1" descripcion="pelota fuera de mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="26" origen="24" destino="1" descripcion="pelota fuera de mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:52.742" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="44">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="44" origen="42" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="44" origen="42" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:54.983" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="43">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="43" origen="8" destino="42" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="43" origen="8" destino="42" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:41:57.413" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="38">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:42:00.569" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="46">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:42:51.567" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="9">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:43:07.718" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="38">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="38" origen="8" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:44:00.292" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="43">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="43" origen="8" destino="42" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="43" origen="8" destino="42" descripcion="cerca de la porteria lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:44:08.225" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="44">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="44" origen="42" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="44" origen="42" destino="8" descripcion="lejos de la porteria lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getOpponentsGoalR" />
+                <right type="constant" value="0.15" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:44:14.124" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="46">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="46" origen="42" destino="37" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:44:18.304" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="50">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+  </es:session>
+  <es:session id="4" timestamp="20120511-14:53:26.102">
+    <es:EditOperation timestamp="20120511-14:56:16.175" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="9">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="1" destino="8" descripcion="pelota en campo contrario y no estoy cerca">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0.5" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:56:32.486" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="49">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="49" origen="1" destino="37" descripcion="cerca de la pelota y en campo contrario">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0.5" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:56:38.842" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="50">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="50" origen="37" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.25" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:56:46.505" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="25">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="25" origen="1" destino="24" descripcion="pelota en mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="25" origen="1" destino="24" descripcion="pelota en mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0.5" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:56:53.308" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="26">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="26" origen="24" destino="1" descripcion="pelota fuera de mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="26" origen="24" destino="1" descripcion="pelota fuera de mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;=">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0.5" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:57:26.426" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Patada2" parentId="37" id="55" />
+    <es:EditOperation timestamp="20120511-14:57:36.053" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_NODE" parentBehaviour="Patada2" parentId="37" id="55">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Lead Ball To Goal" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="Lead Ball To Goal" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-14:58:26.925" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Patada2" parentId="37" id="56" from="33" to="55" />
+    <es:EditOperation timestamp="20120511-14:58:29.008" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Patada2" parentId="37" id="57" from="55" to="34" />
+    <es:EditOperation timestamp="20120511-14:58:31.049" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="CHANGE_FIRST" parentBehaviour="Patada2" parentId="37" oldId="34" newId="33" />
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar arista">
+      <es:EditOperation timestamp="20120511-14:58:39.542" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Patada2" parentId="37" id="35" />
+    </es:CompoundOperation>
+    <es:EditOperation timestamp="20120511-15:00:27.985" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Patada2" parentId="37" id="56">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="56" origen="33" destino="55" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="56" origen="33" destino="55" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.4" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120511-15:00:46.919" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Patada2" parentId="37" id="57">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="57" origen="55" destino="34" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="57" origen="55" destino="34" descripcion="puedo tirar">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="canKick" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+  </es:session>
 </es:editSequence>
 

@@ -6,7 +6,7 @@ import t111209.behaviours.Buscador2Behaviour;
 import t111209.behaviours.BuscadorBehaviour;
 import t111209.behaviours.CompiBehaviour;
 import t111209.behaviours.DefensaBehaviour;
-import t111209.behaviours.DelanteroBehaviour;
+import t111209.behaviours.Delantero2Behaviour;
 import t111209.behaviours.GoToBall;
 import t111209.behaviours.PorteroBehaviour;
 import teams.ucmTeam.Behaviour;
@@ -74,7 +74,7 @@ public class Entrenador extends TeamManager {
 								new DefensaBehaviour(), 	//1
 								new PorteroBehaviour(),		//2
 								new Buscador2Behaviour(),	//3
-								new DelanteroBehaviour()};	//4
+								new Delantero2Behaviour()};	//4
 		
 	}
 }

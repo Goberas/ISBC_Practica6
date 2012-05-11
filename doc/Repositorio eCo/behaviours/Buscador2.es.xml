@@ -289,5 +289,6 @@
       </es:newEdge>
     </es:EditOperation>
   </es:session>
+  <es:session id="6" timestamp="20120511-14:04:33.491" />
 </es:editSequence>
 

@@ -87,7 +87,7 @@
           <beh:propiedad nombre="Goalkeeper" valor="1.0" />
         </beh:listaPropiedades>
         <beh:nodos>
-          <beh:nodo id="34" inicial="false">
+          <beh:nodo id="34" inicial="true">
             <beh:compAtomico nombre="apuntar y tirar" descripcion="">
               <beh:listaPropiedades>
                 <beh:propiedad nombre="Defender" valor="2.0" />
@@ -99,19 +99,7 @@
             </beh:compAtomico>
             <beh:vista x="424" y="352" />
           </beh:nodo>
-          <beh:nodo id="55" inicial="false">
-            <beh:compAtomico nombre="Lead Ball To Goal" descripcion="">
-              <beh:listaPropiedades>
-                <beh:propiedad nombre="Defender" valor="2.0" />
-                <beh:propiedad nombre="Attacker" valor="3.0" />
-                <beh:propiedad nombre="Mobility" valor="4.0" />
-                <beh:propiedad nombre="Goalkeeper" valor="1.0" />
-              </beh:listaPropiedades>
-              <beh:basicBehaviour name="Lead Ball To Goal" />
-            </beh:compAtomico>
-            <beh:vista x="697" y="306" />
-          </beh:nodo>
-          <beh:nodo id="33" inicial="true">
+          <beh:nodo id="33" inicial="false">
             <beh:compAtomico nombre="Ir a la pelota" descripcion="">
               <beh:listaPropiedades>
                 <beh:propiedad nombre="Defender" valor="2.0" />
@@ -135,22 +123,12 @@
               </beh:aggregation>
             </beh:condition>
           </beh:arista>
-          <beh:arista id="57" origen="55" destino="34" descripcion="puedo tirar">
+          <beh:arista id="35" origen="33" destino="34" descripcion="puede tirar">
             <beh:condition>
               <beh:aggregation aggregator="AND">
                 <condition comparator="==">
                   <left type="sensor" value="canKick" />
                   <right type="constant" value="true" />
-                </condition>
-              </beh:aggregation>
-            </beh:condition>
-          </beh:arista>
-          <beh:arista id="56" origen="33" destino="55" descripcion="cerca de la pelota">
-            <beh:condition>
-              <beh:aggregation aggregator="AND">
-                <condition comparator="&lt;">
-                  <left type="sensor" value="getBallR" />
-                  <right type="constant" value="0.4" />
                 </condition>
               </beh:aggregation>
             </beh:condition>
