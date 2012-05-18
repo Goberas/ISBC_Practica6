@@ -86,7 +86,7 @@ object EDU.gatech.cc.is.simulation.ObstacleInvisibleSim -2.047 -1.4396 0 1.0
 // from getting jumpy on slow machines, or when/if your process gets 
 // swapped out. 
 
-maxtimestep 10 
+maxtimestep 29 
 
 //====== 
 // TIMEOUT 
@@ -175,14 +175,14 @@ robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t111209.equipos.TestPlayer
 
 //======EAST TEAM====== 
 eastname EastTeam 
-robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t080906.Criscuquis 
+robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t091016.Oliver_Benji 
 1.2 0 0 xff3333 xffff66 2 
-robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t080906.Criscuquis 
+robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t091016.Oliver_Benji 
 .5 0 0 xff3333 xffff66 2 
-robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t080906.Criscuquis 
+robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t091016.Oliver_Benji 
 .15 .5 0 xff3333 xffff66 2 
-robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t080906.Criscuquis 
+robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t091016.Oliver_Benji 
 .15 0 0 xff3333 xffff66 2 
-robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t080906.Criscuquis 
+robot EDU.gatech.cc.is.abstractrobot.SocSmallSim t091016.Oliver_Benji 
 .15 -.5 0 xff3333 xffff66 2 
 

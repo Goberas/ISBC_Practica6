@@ -154,25 +154,25 @@ public class Delantero2Behaviour extends Behaviour {
 
 		//State 4 : Node 42 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[3];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_4_0";
-		e.transitions[0].state = 2;
+		e.transitions[0].state = 3;
 		e.transitions[1] = new Transition();
 		e.transitions[1].condition = "cond_4_1";
-		e.transitions[1].state = 1;
+		e.transitions[1].state = 2;
+		e.transitions[2] = new Transition();
+		e.transitions[2].condition = "cond_4_2";
+		e.transitions[2].state = 1;
 		e.actions = "acc_4";
 		states.add(e);
 
 		//State 5 : Node 33 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_5_0";
 		e.transitions[0].state = 7;
-		e.transitions[1] = new Transition();
-		e.transitions[1].condition = "cond_5_1";
-		e.transitions[1].state = 8;
 		e.actions = "acc_5";
 		states.add(e);
 
@@ -181,34 +181,34 @@ public class Delantero2Behaviour extends Behaviour {
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_6_0";
-		e.transitions[0].state = 9;
+		e.transitions[0].state = 8;
 		e.actions = "acc_6";
 		states.add(e);
 
-		//State 7 : Node 34 
+		//State 7 : Node 55 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_7_0";
-		e.transitions[0].state = 5;
+		e.transitions[0].state = 9;
 		e.actions = "acc_7";
 		states.add(e);
 
-		//State 8 : Node 55 
+		//State 8 : Node 52 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_8_0";
-		e.transitions[0].state = 7;
+		e.transitions[0].state = 6;
 		e.actions = "acc_8";
 		states.add(e);
 
-		//State 9 : Node 52 
+		//State 9 : Node 34 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_9_0";
-		e.transitions[0].state = 6;
+		e.transitions[0].state = 5;
 		e.actions = "acc_9";
 		states.add(e);
 
@@ -268,11 +268,16 @@ stack.add(states.get(5));
 
 //Conditions for State 4 : Node 42
 	public Boolean cond_4_0(){
-		return ((myRobotAPI.getBall().r <= 0.25));
+		return ((myRobotAPI.opponentsHaveGoalkeeper() == true));
 	}
 
 //Conditions for State 4 : Node 42
 	public Boolean cond_4_1(){
+		return ((myRobotAPI.getBall().r <= 0.25));
+	}
+
+//Conditions for State 4 : Node 42
+	public Boolean cond_4_2(){
 		return ((myRobotAPI.getOpponentsGoal().r > 0.15) && (myRobotAPI.getBall().r > 0.25));
 	}
 
@@ -282,11 +287,6 @@ stack.add(states.get(6));
 
 //Conditions for State 5 : Node 33
 	public Boolean cond_5_0(){
-		return ((myRobotAPI.canKick() == true));
-	}
-
-//Conditions for State 5 : Node 33
-	public Boolean cond_5_1(){
 		return ((myRobotAPI.getBall().r < 0.4));
 	}
 
@@ -303,31 +303,31 @@ stack.add(states.get(6));
 		muevahacaiarriba();
 	}
 
-//Conditions for State 7 : Node 34
+//Conditions for State 7 : Node 55
 	public Boolean cond_7_0(){
-		return ((myRobotAPI.canKick() == false));
-	}
-
-	public void acc_7(){
-		apuntarytirar();
-	}
-
-//Conditions for State 8 : Node 55
-	public Boolean cond_8_0(){
 		return ((myRobotAPI.canKick() == true));
 	}
 
-	public void acc_8(){
+	public void acc_7(){
 		LeadBallToGoal();
 	}
 
-//Conditions for State 9 : Node 52
-	public Boolean cond_9_0(){
+//Conditions for State 8 : Node 52
+	public Boolean cond_8_0(){
 		return ((myRobotAPI.getPosition().y <= -0.7));
 	}
 
-	public void acc_9(){
+	public void acc_8(){
 		muevehaciaabajo();
+	}
+
+//Conditions for State 9 : Node 34
+	public Boolean cond_9_0(){
+		return ((myRobotAPI.canKick() == false));
+	}
+
+	public void acc_9(){
+		apuntarytirar();
 	}
 
 
@@ -409,17 +409,17 @@ myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
 	}
+ 	public void pulularlento() { 
+
+		Vec2 destino = new Vec2(0.0, 0.0);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(0.4);
+
+	}
  	public void muevahacaiarriba() { 
 
 		Vec2 destino = new Vec2(0.0, 0.50);
-destino.sub(myRobotAPI.getPosition());
-myRobotAPI.setSteerHeading(destino.t);
-myRobotAPI.setSpeed(1.0);
-
-	}
- 	public void pulular() { 
-
-		Vec2 destino = new Vec2(0.0, 0.0);
 destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
@@ -431,7 +431,23 @@ myRobotAPI.setSpeed(1.0);
 myRobotAPI.kick();
 
 	}
+ 	public void pulular() { 
+
+		Vec2 destino = new Vec2(0.0, 0.0);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);
+
+	}
  	public void apuntar() { 
+
+		myRobotAPI.setBehindBall(myRobotAPI.getBall());
+myRobotAPI.setSpeed(0);
+myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
+myRobotAPI.kick();
+
+	}
+ 	public void apuntarytirar() { 
 
 		myRobotAPI.setBehindBall(myRobotAPI.getBall());
 myRobotAPI.setSpeed(0);
@@ -444,17 +460,15 @@ myRobotAPI.kick();
 		myRobotAPI.setSpeed(0.0);
 
 	}
- 	public void apuntarytirar() { 
-
-		myRobotAPI.setBehindBall(myRobotAPI.getBall());
-myRobotAPI.setSpeed(0);
-myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
-myRobotAPI.kick();
-
-	}
  	public void Patear() { 
 
 		myRobotAPI.kick();
+
+	}
+ 	public void WalkTowardsGoal() { 
+
+		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
+myRobotAPI.setSpeed(1.0);
 
 	}
  	public void muevehaciaabajo() { 
@@ -465,22 +479,16 @@ myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
 	}
- 	public void WalkTowardsGoal() { 
-
-		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
-myRobotAPI.setSpeed(1.0);
-
-	}
- 	public void BlockGoalkeeper() { 
-
-		myRobotAPI.blockGoalKeeper();
-
-	}
  	public void pasar() { 
 
 		Vec2 cercano = myRobotAPI.getClosestMate();
 myRobotAPI.passBall(cercano);
 myRobotAPI.setDisplayString("pasar");
+
+	}
+ 	public void BlockGoalkeeper() { 
+
+		myRobotAPI.blockGoalKeeper();
 
 	}
  
