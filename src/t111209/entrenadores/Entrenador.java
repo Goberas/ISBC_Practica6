@@ -25,8 +25,8 @@ public class Entrenador extends TeamManager {
 		
 		if (_players[0].getBehaviour() != _behaviours[2]) 
 			_players[0].setBehaviour(_behaviours[2]);
-		if (_players[1].getBehaviour() != _behaviours[3]) 
-			_players[1].setBehaviour(_behaviours[3]);
+//		if (_players[1].getBehaviour() != _behaviours[3]) 
+//			_players[1].setBehaviour(_behaviours[3]);
 		if (_players[4].getBehaviour() != _behaviours[4]) 
 			_players[4].setBehaviour(_behaviours[4]);
 		
@@ -40,6 +40,11 @@ public class Entrenador extends TeamManager {
 			// E.o.c. --> Defensa
 			for(int i=2; i<4;i++)
 				_players[i].setBehaviour(_behaviours[1]);
+		RobotAPI portero = _players[0].getRobotAPI();
+		if(portero.blocked())
+			_players[1].setBehaviour(_behaviours[2]);
+		else
+			_players[1].setBehaviour(_behaviours[3]);
 
 	}
 	
