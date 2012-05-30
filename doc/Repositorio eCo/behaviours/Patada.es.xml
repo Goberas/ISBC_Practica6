@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<es:editSequence xmlns:es="http://www.local.com/eCo/xml/EditSequence.xsd" onSave="true">
+  <es:session id="1" timestamp="20120501-16:43:27.204">
+    <es:EditOperation timestamp="20120501-16:48:27.436" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="ADD_NODE" parentBehaviour="Patada" parentId="MAIN" id="1" />
+    <es:EditOperation timestamp="20120501-16:48:28.071" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="ADD_NODE" parentBehaviour="Patada" parentId="MAIN" id="2" />
+    <es:EditOperation timestamp="20120501-16:49:12.178" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="EDIT_NODE" parentBehaviour="Patada" parentId="MAIN" id="1">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Ir a la pelota" descripcion="El jugador se mueve directamente hacia la pelota">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="Ir a la pelota" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120501-16:49:54.333" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="EDIT_NODE" parentBehaviour="Patada" parentId="MAIN" id="2">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Patear" descripcion="Da un golpe a la pelota&#xA;">
+          <listaPropiedades>
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="Patear" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120501-16:51:08.013" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="ADD_EDGE" parentBehaviour="Patada" parentId="MAIN" id="3" from="1" to="2" />
+    <es:EditOperation timestamp="20120501-16:51:09.792" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="ADD_EDGE" parentBehaviour="Patada" parentId="MAIN" id="4" from="2" to="1" />
+    <es:EditOperation timestamp="20120501-16:52:12.855" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="EDIT_EDGE" parentBehaviour="Patada" parentId="MAIN" id="3">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="3" origen="1" destino="2" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="3" origen="1" destino="2" descripcion="Puedo dar una patada">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="canKick" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120501-16:53:22.593" repositoryPath="SoccerBots" mainBehaviour="Patada" operationType="EDIT_EDGE" parentBehaviour="Patada" parentId="MAIN" id="4">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="4" origen="2" destino="1" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="4" origen="2" destino="1" descripcion="No puedo golpear">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="canKick" />
+                <right type="constant" value="false" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+  </es:session>
+  <es:session id="2" timestamp="20120501-17:05:29.373" />
+</es:editSequence>
+

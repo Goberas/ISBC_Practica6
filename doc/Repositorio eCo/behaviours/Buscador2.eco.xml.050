@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beh:compCompuesto xmlns:beh="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Buscador2" descripcion="">
+  <beh:listaPropiedades>
+    <beh:propiedad nombre="Defender" valor="2.0" />
+    <beh:propiedad nombre="Attacker" valor="3.0" />
+    <beh:propiedad nombre="Mobility" valor="4.0" />
+    <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+  </beh:listaPropiedades>
+  <beh:nodos>
+    <beh:nodo id="4" inicial="false">
+      <beh:vista x="689" y="260" />
+    </beh:nodo>
+    <beh:nodo id="3" inicial="false">
+      <beh:vista x="501" y="331" />
+    </beh:nodo>
+    <beh:nodo id="2" inicial="false">
+      <beh:compAtomico nombre="pulular" descripcion="">
+        <beh:listaPropiedades>
+          <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Defender" valor="2.0" />
+          <beh:propiedad nombre="Mobility" valor="4.0" />
+          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+        </beh:listaPropiedades>
+        <beh:basicBehaviour name="pulular" />
+      </beh:compAtomico>
+      <beh:vista x="456" y="174" />
+    </beh:nodo>
+    <beh:nodo id="1" inicial="true">
+      <beh:compAtomico nombre="Go To Center" descripcion="">
+        <beh:listaPropiedades>
+          <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Defender" valor="2.0" />
+          <beh:propiedad nombre="Mobility" valor="4.0" />
+          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+        </beh:listaPropiedades>
+        <beh:basicBehaviour name="Go To Center" />
+      </beh:compAtomico>
+      <beh:vista x="268" y="212" />
+    </beh:nodo>
+  </beh:nodos>
+</beh:compCompuesto>
+
