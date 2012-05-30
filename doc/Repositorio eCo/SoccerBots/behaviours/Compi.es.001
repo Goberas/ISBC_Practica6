@@ -1059,6 +1059,156 @@
       </es:newEdge>
     </es:EditOperation>
   </es:session>
-  <es:session id="7" timestamp="20120502-21:32:30.885" />
+  <es:session id="7" timestamp="20120502-21:32:30.885">
+    <es:EditOperation timestamp="20120530-23:21:21.118" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="ADD_NODE" parentBehaviour="Compi" parentId="MAIN" id="16" />
+    <es:EditOperation timestamp="20120530-23:21:24.758" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="ADD_EDGE" parentBehaviour="Compi" parentId="MAIN" id="17" from="1" to="16" />
+    <es:EditOperation timestamp="20120530-23:21:55.086" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="EDIT_EDGE" parentBehaviour="Compi" parentId="MAIN" id="8">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="8" origen="1" destino="7" descripcion="Estoy cerca de la porteria y puedo golpear">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="normalizedPositionX" />
+                <right type="constant" value="0.10" />
+              </condition>
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="canKick" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="8" origen="1" destino="7" descripcion="Estoy cerca de la porteria y puedo golpear">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="normalizedPositionX" />
+                <right type="constant" value="0.10" />
+              </condition>
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="canKick" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120530-23:22:57.712" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="EDIT_EDGE" parentBehaviour="Compi" parentId="MAIN" id="17">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="17" origen="1" destino="16" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="17" origen="1" destino="16" descripcion="cerca de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;=">
+                <left type="sensor" value="normalizedPositionX" />
+                <right type="constant" value="0.1" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120530-23:26:07.683" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="EDIT_NODE" parentBehaviour="Compi" parentId="MAIN" id="16">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="dirige pelota a porteria" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="dirige pelota a porteria" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120530-23:26:39.566" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="ADD_NODE" parentBehaviour="Compi" parentId="MAIN" id="18" />
+    <es:EditOperation timestamp="20120530-23:26:43.653" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="ADD_EDGE" parentBehaviour="Compi" parentId="MAIN" id="19" from="16" to="18" />
+    <es:EditOperation timestamp="20120530-23:26:44.926" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="ADD_EDGE" parentBehaviour="Compi" parentId="MAIN" id="20" from="18" to="1" />
+    <es:EditOperation timestamp="20120530-23:27:23.699" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="EDIT_EDGE" parentBehaviour="Compi" parentId="MAIN" id="19">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="19" origen="16" destino="18" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="19" origen="16" destino="18" descripcion="puede golpear">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="canKick" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120530-23:27:37.514" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="EDIT_NODE" parentBehaviour="Compi" parentId="MAIN" id="18">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Patear" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="Patear" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120530-23:29:40.976" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="EDIT_EDGE" parentBehaviour="Compi" parentId="MAIN" id="20">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="20" origen="18" destino="1" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="20" origen="18" destino="1" descripcion="lejos pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.1" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar nodo">
+      <es:EditOperation timestamp="20120530-23:29:53.901" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="REMOVE_EDGE" parentBehaviour="Compi" parentId="MAIN" id="8" />
+      <es:EditOperation timestamp="20120530-23:29:53.901" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="REMOVE_EDGE" parentBehaviour="Compi" parentId="MAIN" id="12" />
+      <es:EditOperation timestamp="20120530-23:29:53.904" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="REMOVE_NODE" parentBehaviour="Compi" parentId="MAIN" id="7" />
+    </es:CompoundOperation>
+    <es:EditOperation timestamp="20120530-23:38:51.567" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="ADD_EDGE" parentBehaviour="Compi" parentId="MAIN" id="21" from="16" to="1" />
+    <es:EditOperation timestamp="20120530-23:39:22.977" repositoryPath="SoccerBots" mainBehaviour="Compi" operationType="EDIT_EDGE" parentBehaviour="Compi" parentId="MAIN" id="21">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="21" origen="16" destino="1" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="21" origen="16" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.1" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+  </es:session>
 </es:editSequence>
 

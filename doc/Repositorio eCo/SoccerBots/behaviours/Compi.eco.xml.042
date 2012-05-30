@@ -10,8 +10,8 @@
     <beh:nodo id="9" inicial="false">
       <beh:compAtomico nombre="pasar" descripcion="">
         <beh:listaPropiedades>
-          <beh:propiedad nombre="Defender" valor="2.0" />
           <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Defender" valor="2.0" />
           <beh:propiedad nombre="Mobility" valor="4.0" />
           <beh:propiedad nombre="Goalkeeper" valor="1.0" />
         </beh:listaPropiedades>
@@ -19,35 +19,23 @@
       </beh:compAtomico>
       <beh:vista x="353" y="436" />
     </beh:nodo>
-    <beh:nodo id="18" inicial="false">
-      <beh:compAtomico nombre="Patear" descripcion="">
+    <beh:nodo id="7" inicial="false">
+      <beh:compAtomico nombre="Lead Ball To Goal" descripcion="">
         <beh:listaPropiedades>
           <beh:propiedad nombre="Attacker" valor="3.0" />
           <beh:propiedad nombre="Defender" valor="2.0" />
           <beh:propiedad nombre="Mobility" valor="4.0" />
           <beh:propiedad nombre="Goalkeeper" valor="1.0" />
         </beh:listaPropiedades>
-        <beh:basicBehaviour name="Patear" />
+        <beh:basicBehaviour name="Lead Ball To Goal" />
       </beh:compAtomico>
-      <beh:vista x="-127" y="262" />
-    </beh:nodo>
-    <beh:nodo id="16" inicial="false">
-      <beh:compAtomico nombre="dirige pelota a porteria" descripcion="">
-        <beh:listaPropiedades>
-          <beh:propiedad nombre="Attacker" valor="3.0" />
-          <beh:propiedad nombre="Defender" valor="2.0" />
-          <beh:propiedad nombre="Mobility" valor="4.0" />
-          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
-        </beh:listaPropiedades>
-        <beh:basicBehaviour name="dirige pelota a porteria" />
-      </beh:compAtomico>
-      <beh:vista x="-126" y="384" />
+      <beh:vista x="86" y="63" />
     </beh:nodo>
     <beh:nodo id="13" inicial="false">
       <beh:compAtomico nombre="Unblock" descripcion="">
         <beh:listaPropiedades>
-          <beh:propiedad nombre="Defender" valor="2.0" />
           <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Defender" valor="2.0" />
           <beh:propiedad nombre="Mobility" valor="4.0" />
           <beh:propiedad nombre="Goalkeeper" valor="1.0" />
         </beh:listaPropiedades>
@@ -58,8 +46,8 @@
     <beh:nodo id="1" inicial="true">
       <beh:compAtomico nombre="Ir a la pelota" descripcion="">
         <beh:listaPropiedades>
-          <beh:propiedad nombre="Defender" valor="2.0" />
           <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Defender" valor="2.0" />
           <beh:propiedad nombre="Mobility" valor="4.0" />
           <beh:propiedad nombre="Goalkeeper" valor="1.0" />
         </beh:listaPropiedades>
@@ -69,29 +57,13 @@
     </beh:nodo>
   </beh:nodos>
   <beh:aristas>
-    <beh:arista id="21" origen="16" destino="1" descripcion="lejos de la pelota">
+    <beh:arista id="10" origen="1" destino="9" descripcion="Estoy lejos pero puedo golpear">
       <beh:condition>
         <beh:aggregation aggregator="AND">
           <condition comparator="&gt;">
-            <left type="sensor" value="getBallR" />
-            <right type="constant" value="0.1" />
+            <left type="sensor" value="normalizedPositionX" />
+            <right type="constant" value="1.1" />
           </condition>
-        </beh:aggregation>
-      </beh:condition>
-    </beh:arista>
-    <beh:arista id="20" origen="18" destino="1" descripcion="lejos pelota">
-      <beh:condition>
-        <beh:aggregation aggregator="AND">
-          <condition comparator="&gt;">
-            <left type="sensor" value="getBallR" />
-            <right type="constant" value="0.1" />
-          </condition>
-        </beh:aggregation>
-      </beh:condition>
-    </beh:arista>
-    <beh:arista id="19" origen="16" destino="18" descripcion="puede golpear">
-      <beh:condition>
-        <beh:aggregation aggregator="AND">
           <condition comparator="==">
             <left type="sensor" value="canKick" />
             <right type="constant" value="true" />
@@ -99,12 +71,16 @@
         </beh:aggregation>
       </beh:condition>
     </beh:arista>
-    <beh:arista id="17" origen="1" destino="16" descripcion="cerca de la pelota">
+    <beh:arista id="8" origen="1" destino="7" descripcion="Estoy cerca de la porteria y puedo golpear">
       <beh:condition>
         <beh:aggregation aggregator="AND">
           <condition comparator="&lt;=">
             <left type="sensor" value="normalizedPositionX" />
-            <right type="constant" value="0.1" />
+            <right type="constant" value="0.10" />
+          </condition>
+          <condition comparator="==">
+            <left type="sensor" value="canKick" />
+            <right type="constant" value="true" />
           </condition>
         </beh:aggregation>
       </beh:condition>
@@ -129,7 +105,7 @@
         </beh:aggregation>
       </beh:condition>
     </beh:arista>
-    <beh:arista id="11" origen="9" destino="1" descripcion="No tengo la pelota">
+    <beh:arista id="12" origen="7" destino="1" descripcion="No tengo la pelota">
       <beh:condition>
         <beh:aggregation aggregator="AND">
           <condition comparator="==">
@@ -139,16 +115,12 @@
         </beh:aggregation>
       </beh:condition>
     </beh:arista>
-    <beh:arista id="10" origen="1" destino="9" descripcion="Estoy lejos pero puedo golpear">
+    <beh:arista id="11" origen="9" destino="1" descripcion="No tengo la pelota">
       <beh:condition>
         <beh:aggregation aggregator="AND">
-          <condition comparator="&gt;">
-            <left type="sensor" value="normalizedPositionX" />
-            <right type="constant" value="1.1" />
-          </condition>
           <condition comparator="==">
             <left type="sensor" value="canKick" />
-            <right type="constant" value="true" />
+            <right type="constant" value="false" />
           </condition>
         </beh:aggregation>
       </beh:condition>

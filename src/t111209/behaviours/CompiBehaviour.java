@@ -90,7 +90,7 @@ public class CompiBehaviour extends Behaviour {
 
 	@Override
 	public void onInit(RobotAPI r) {
-		r.setDisplayString("Compi");
+		myRobotAPI.setDisplayString("Compi");
 		//Initialize the stack with the first state 
 		stack = new Vector<State>();
 		stack.add(states.get(0));
@@ -132,12 +132,15 @@ public class CompiBehaviour extends Behaviour {
 		e.actions = "acc_1";
 		states.add(e);
 
-		//State 2 : Node  7 
+		//State 2 : Node 16 
 		e = new State();
-		e.transitions = new Transition[1];
+		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_2_0";
 		e.transitions[0].state = 0;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_2_1";
+		e.transitions[1].state = 4;
 		e.actions = "acc_2";
 		states.add(e);
 
@@ -148,6 +151,15 @@ public class CompiBehaviour extends Behaviour {
 		e.transitions[0].condition = "cond_3_0";
 		e.transitions[0].state = 0;
 		e.actions = "acc_3";
+		states.add(e);
+
+		//State 4 : Node 18 
+		e = new State();
+		e.transitions = new Transition[1];
+		e.transitions[0] = new Transition();
+		e.transitions[0].condition = "cond_4_0";
+		e.transitions[0].state = 0;
+		e.actions = "acc_4";
 		states.add(e);
 
 
@@ -161,7 +173,7 @@ public class CompiBehaviour extends Behaviour {
 
 //Conditions for State 0 : Node  1
 	public Boolean cond_0_1(){
-		return ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x <= 0.10) && (myRobotAPI.canKick() == true));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x <= 0.1));
 	}
 
 //Conditions for State 0 : Node  1
@@ -182,13 +194,18 @@ public class CompiBehaviour extends Behaviour {
 		pasar();
 	}
 
-//Conditions for State 2 : Node  7
+//Conditions for State 2 : Node 16
 	public Boolean cond_2_0(){
-		return ((myRobotAPI.canKick() == false));
+		return ((myRobotAPI.getBall().r > 0.1));
+	}
+
+//Conditions for State 2 : Node 16
+	public Boolean cond_2_1(){
+		return ((myRobotAPI.canKick() == true));
 	}
 
 	public void acc_2(){
-		LeadBallToGoal();
+		dirigepelotaaporteria();
 	}
 
 //Conditions for State 3 : Node 13
@@ -198,6 +215,15 @@ public class CompiBehaviour extends Behaviour {
 
 	public void acc_3(){
 		Unblock();
+	}
+
+//Conditions for State 4 : Node 18
+	public Boolean cond_4_0(){
+		return ((myRobotAPI.getBall().r > 0.1));
+	}
+
+	public void acc_4(){
+		Patear();
 	}
 
 
@@ -227,6 +253,20 @@ myRobotAPI.setSpeed(1.0);
 		 
 
 	}
+ 	public void dirigepelotaaporteria() { 
+
+		myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
+myRobotAPI.setSpeed(0.7);
+
+
+
+	}
+ 	public void Iraporteriacontraria() { 
+
+		myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
+myRobotAPI.setSpeed(1.0);
+
+	}
  	public void Iralapelota() { 
 
 		// Sacamos el ángulo de la pelota
@@ -246,7 +286,7 @@ myRobotAPI.setSpeed(1.0);
  	public void avanzacentroabajo() { 
 
 		Vec2 destino = new Vec2(0.0, -0.76);
-destino.sub(myRobotAPI.getPosition());
+//destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
@@ -264,11 +304,18 @@ myRobotAPI.setSpeed(1.0);
 		myRobotAPI.setSteerHeading(myRobotAPI.getClosestOpponent().t);
 myRobotAPI.setSpeed(1.0);
 
-
 	}
  	public void avanzacentroarriba() { 
 
 		Vec2 destino = new Vec2(0.0, 0.76);
+//destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);
+
+	}
+ 	public void muevahacaiarriba() { 
+
+		Vec2 destino = new Vec2(0.0, 0.50);
 destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
@@ -278,6 +325,14 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.blockClosest();
 myRobotAPI.kick();
+
+	}
+ 	public void pulular() { 
+
+		Vec2 destino = new Vec2(0.0, 0.0);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);
 
 	}
  	public void Wait() { 
@@ -293,6 +348,14 @@ myRobotAPI.kick();
  	public void WalkTowardsGoal() { 
 
 		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
+myRobotAPI.setSpeed(1.0);
+
+	}
+ 	public void muevehaciaabajo() { 
+
+		Vec2 destino = new Vec2(0.0, -0.50);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
 	}
