@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<es:editSequence xmlns:es="http://www.local.com/eCo/xml/EditSequence.xsd" onSave="false">
+<es:editSequence xmlns:es="http://www.local.com/eCo/xml/EditSequence.xsd" onSave="true">
   <es:session id="1" timestamp="20120502-21:35:43.523">
     <es:EditOperation timestamp="20120502-21:36:45.329" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Delantero" parentId="MAIN" id="1" />
     <es:EditOperation timestamp="20120502-21:36:46.780" repositoryPath="SoccerBots" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Delantero" parentId="MAIN" id="2" />
@@ -2238,5 +2238,6 @@
       </es:newEdge>
     </es:EditOperation>
   </es:session>
+  <es:session id="5" timestamp="20120530-18:06:28.408" />
 </es:editSequence>
 

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beh:compCompuesto xmlns:beh="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Delantero" descripcion="">
+  <beh:listaPropiedades>
+    <beh:propiedad nombre="Attacker" valor="3.0" />
+    <beh:propiedad nombre="Defender" valor="2.0" />
+    <beh:propiedad nombre="Mobility" valor="4.0" />
+    <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+  </beh:listaPropiedades>
+  <beh:nodos>
+    <beh:nodo id="8" inicial="false">
+      <beh:compAtomico nombre="Lead Ball To Goal" descripcion="">
+        <beh:listaPropiedades>
+          <beh:propiedad nombre="Defender" valor="2.0" />
+          <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Mobility" valor="4.0" />
+          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+        </beh:listaPropiedades>
+        <beh:basicBehaviour name="Lead Ball To Goal" />
+      </beh:compAtomico>
+      <beh:vista x="788" y="312" />
+    </beh:nodo>
+    <beh:nodo id="6" inicial="false">
+      <beh:compAtomico nombre="apuntar" descripcion="">
+        <beh:listaPropiedades>
+          <beh:propiedad nombre="Defender" valor="2.0" />
+          <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Mobility" valor="4.0" />
+          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+        </beh:listaPropiedades>
+        <beh:basicBehaviour name="apuntar" />
+      </beh:compAtomico>
+      <beh:vista x="820" y="159" />
+    </beh:nodo>
+    <beh:nodo id="4" inicial="false">
+      <beh:compAtomico nombre="coloca" descripcion="">
+        <beh:listaPropiedades>
+          <beh:propiedad nombre="Defender" valor="2.0" />
+          <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Mobility" valor="4.0" />
+          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+        </beh:listaPropiedades>
+        <beh:basicBehaviour name="coloca" />
+      </beh:compAtomico>
+      <beh:vista x="602" y="114" />
+    </beh:nodo>
+    <beh:nodo id="2" inicial="false">
+      <beh:compAtomico nombre="Ir pelota" descripcion="">
+        <beh:listaPropiedades>
+          <beh:propiedad nombre="Defender" valor="2.0" />
+          <beh:propiedad nombre="Attacker" valor="3.0" />
+          <beh:propiedad nombre="Mobility" valor="4.0" />
+          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
+        </beh:listaPropiedades>
+        <beh:basicBehaviour name="Ir pelota" />
+      </beh:compAtomico>
+      <beh:vista x="404" y="83" />
+    </beh:nodo>
+    <beh:nodo id="1" inicial="true">
+      <beh:vista x="153" y="264" />
+    </beh:nodo>
+  </beh:nodos>
+  <beh:aristas>
+    <beh:arista id="9" origen="6" destino="8" descripcion="alineado">
+      <beh:condition>
+        <beh:aggregation aggregator="AND">
+          <condition comparator="==">
+            <left type="sensor" value="alignedToBallandGoal" />
+            <right type="constant" value="true" />
+          </condition>
+        </beh:aggregation>
+      </beh:condition>
+    </beh:arista>
+    <beh:arista id="7" origen="4" destino="6" descripcion="junto">
+      <beh:condition>
+        <beh:aggregation aggregator="AND">
+          <condition comparator="==">
+            <left type="sensor" value="closestToBall" />
+            <right type="constant" value="true" />
+          </condition>
+        </beh:aggregation>
+      </beh:condition>
+    </beh:arista>
+    <beh:arista id="5" origen="2" destino="4" descripcion="esta cerca de la pelota">
+      <beh:condition>
+        <beh:aggregation aggregator="AND">
+          <condition comparator="&lt;=">
+            <left type="sensor" value="getBallR" />
+            <right type="constant" value="0.3" />
+          </condition>
+        </beh:aggregation>
+      </beh:condition>
+    </beh:arista>
+    <beh:arista id="3" origen="1" destino="2" descripcion="Si no tienen portero">
+      <beh:condition>
+        <beh:aggregation aggregator="AND">
+          <condition comparator="==">
+            <left type="sensor" value="opponentsHaveGoalkeeper" />
+            <right type="constant" value="false" />
+          </condition>
+        </beh:aggregation>
+      </beh:condition>
+    </beh:arista>
+  </beh:aristas>
+</beh:compCompuesto>
+
