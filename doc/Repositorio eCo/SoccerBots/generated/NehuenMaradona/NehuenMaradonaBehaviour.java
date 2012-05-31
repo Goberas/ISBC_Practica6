@@ -1,6 +1,6 @@
 //Template for Behaviour file
 //This file is used by code generator
-package t111209.behaviours;
+package NehuenMaradona;
 
 //IMPORT SECTION 
 import java.lang.reflect.InvocationTargetException;
@@ -178,16 +178,13 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 
 		//State 6 : Node  6 
 		e = new State();
-		e.transitions = new Transition[3];
+		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_6_0";
 		e.transitions[0].state = 7;
 		e.transitions[1] = new Transition();
 		e.transitions[1].condition = "cond_6_1";
 		e.transitions[1].state = 2;
-		e.transitions[2] = new Transition();
-		e.transitions[2].condition = "cond_6_2";
-		e.transitions[2].state = 8;
 		e.actions = "acc_6";
 		states.add(e);
 
@@ -196,17 +193,8 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_7_0";
-		e.transitions[0].state = 2;
-		e.actions = "acc_7";
-		states.add(e);
-
-		//State 8 : Node 24 
-		e = new State();
-		e.transitions = new Transition[1];
-		e.transitions[0] = new Transition();
-		e.transitions[0].condition = "cond_8_0";
 		e.transitions[0].state = 0;
-		e.actions = "acc_8";
+		e.actions = "acc_7";
 		states.add(e);
 
 
@@ -266,7 +254,7 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 
 //Conditions for State 4 : Node  4
 	public Boolean cond_4_0(){
-		return ((myRobotAPI.getBall().r < 0.1));
+		return ((myRobotAPI.closestToBall() == true));
 	}
 
 //Conditions for State 4 : Node  4
@@ -302,11 +290,6 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 		return ((myRobotAPI.getBall().r > 0.1));
 	}
 
-//Conditions for State 6 : Node  6
-	public Boolean cond_6_2(){
-		return ((myRobotAPI.canKick() == true));
-	}
-
 	public void acc_6(){
 		apuntar();
 	}
@@ -318,15 +301,6 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 
 	public void acc_7(){
 		LeadBallToGoal();
-	}
-
-//Conditions for State 8 : Node 24
-	public Boolean cond_8_0(){
-		return ((myRobotAPI.getBall().r > 0.2));
-	}
-
-	public void acc_8(){
-		tira();
 	}
 
 
@@ -342,11 +316,6 @@ myRobotAPI.kick();
  	public void BlockForward() { 
 
 		myRobotAPI.blockForward();
-
-	}
- 	public void tira() { 
-
-		myRobotAPI.kick();
 
 	}
  	public void GoToCenter() { 
@@ -398,7 +367,7 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setDisplayString("Apunta");
 myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
-myRobotAPI.setSpeed(1.0);
+myRobotAPI.setSpeed(0.6);
 
 	}
  	public void Wait() { 

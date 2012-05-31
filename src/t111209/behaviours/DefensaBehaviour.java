@@ -141,7 +141,7 @@ public class DefensaBehaviour extends Behaviour {
 	//Conditions and actions that was building based in the graph of de HFMS of the tool editor
 	//Conditions for State 0 : Node 10
 	public Boolean cond_0_0(){
-		return ((myRobotAPI.getOurGoal().r <= 0.2));
+		return ((myRobotAPI.getOurGoal().r <= 0.35));
 	}
 
 	public void acc_0(){
@@ -193,6 +193,18 @@ myRobotAPI.setSpeed(1.0);
 		 
 
 	}
+ 	public void dirigepelotaaporteria() { 
+
+		myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
+myRobotAPI.setSpeed(0.7);
+
+	}
+ 	public void Iraporteriacontraria() { 
+
+		myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
+myRobotAPI.setSpeed(1.0);
+
+	}
  	public void Iralapelota() { 
 
 		// Sacamos el ángulo de la pelota
@@ -212,7 +224,7 @@ myRobotAPI.setSpeed(1.0);
  	public void avanzacentroabajo() { 
 
 		Vec2 destino = new Vec2(0.0, -0.76);
-destino.sub(myRobotAPI.getPosition());
+//destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
 
@@ -230,11 +242,26 @@ myRobotAPI.setSpeed(1.0);
 		myRobotAPI.setSteerHeading(myRobotAPI.getClosestOpponent().t);
 myRobotAPI.setSpeed(1.0);
 
-
 	}
  	public void avanzacentroarriba() { 
 
 		Vec2 destino = new Vec2(0.0, 0.76);
+//destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);
+
+	}
+ 	public void muevahacaiarriba() { 
+
+		Vec2 destino = new Vec2(0.0, 0.50);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);
+
+	}
+ 	public void pulular() { 
+
+		Vec2 destino = new Vec2(0.0, 0.0);
 destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
@@ -256,10 +283,31 @@ myRobotAPI.kick();
 		myRobotAPI.kick();
 
 	}
+ 	public void muevehaciaabajo() { 
+
+		Vec2 destino = new Vec2(0.0, -0.50);
+destino.sub(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);
+
+	}
  	public void WalkTowardsGoal() { 
 
 		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
+
+	}
+ 	public void Cubrir() { 
+
+		Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
+dest.add(myRobotAPI.getBall());
+myRobotAPI.setSteerHeading(dest.t);
+myRobotAPI.setSpeed(0.0);
+
+	}
+ 	public void BlockGoalkeeper() { 
+
+		myRobotAPI.blockGoalKeeper();
 
 	}
  	public void pasar() { 
@@ -267,11 +315,6 @@ myRobotAPI.setSpeed(1.0);
 		Vec2 cercano = myRobotAPI.getClosestMate();
 myRobotAPI.passBall(cercano);
 myRobotAPI.setDisplayString("pasar");
-
-	}
- 	public void BlockGoalkeeper() { 
-
-		myRobotAPI.blockGoalKeeper();
 
 	}
  

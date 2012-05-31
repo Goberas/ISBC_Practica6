@@ -1,6 +1,6 @@
 //Template for Behaviour file
 //This file is used by code generator
-package Defensa;
+package Defensa2;
 
 //IMPORT SECTION 
 import java.lang.reflect.InvocationTargetException;
@@ -13,7 +13,7 @@ import teams.ucmTeam.Behaviour;
 import teams.ucmTeam.Message;
 import teams.ucmTeam.RobotAPI;
 
-public class DefensaBehaviour extends Behaviour {
+public class Defensa2Behaviour extends Behaviour {
 	/**
 	 * Table for manage all state of the HFMS
 	 */
@@ -116,7 +116,7 @@ public class DefensaBehaviour extends Behaviour {
 		e.actions = "acc_0";
 		states.add(e);
 
-		//State 1 : Node  1 
+		//State 1 : Node 13 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
@@ -125,13 +125,25 @@ public class DefensaBehaviour extends Behaviour {
 		e.actions = "acc_1";
 		states.add(e);
 
-		//State 2 : Node  2 
+		//State 2 : Node  1 
 		e = new State();
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_2_0";
-		e.transitions[0].state = 1;
+		e.transitions[0].state = 3;
 		e.actions = "acc_2";
+		states.add(e);
+
+		//State 3 : Node  2 
+		e = new State();
+		e.transitions = new Transition[2];
+		e.transitions[0] = new Transition();
+		e.transitions[0].condition = "cond_3_0";
+		e.transitions[0].state = 2;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_3_1";
+		e.transitions[1].state = 0;
+		e.actions = "acc_3";
 		states.add(e);
 
 
@@ -147,21 +159,35 @@ public class DefensaBehaviour extends Behaviour {
 		WalkTowardsGoal();
 	}
 
-//Conditions for State 1 : Node  1
+//Conditions for State 1 : Node 13
 	public Boolean cond_1_0(){
-		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x <= 0) && (myRobotAPI.getBall().r >= 0.1));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x < 0));
 	}
 
 	public void acc_1(){
-		bloqueacercano();
+		Wait();
 	}
 
-//Conditions for State 2 : Node  2
+//Conditions for State 2 : Node  1
 	public Boolean cond_2_0(){
-		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0) || (myRobotAPI.getBall().r < 0.1));
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x <= 0) && (myRobotAPI.getBall().r >= 0.1));
 	}
 
 	public void acc_2(){
+		bloqueacercano();
+	}
+
+//Conditions for State 3 : Node  2
+	public Boolean cond_3_0(){
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.toFieldCoordinates(myRobotAPI.getBall()).x >= 0) || (myRobotAPI.getBall().r < 0.1));
+	}
+
+//Conditions for State 3 : Node  2
+	public Boolean cond_3_1(){
+		return ((myRobotAPI.getJustScored() != 0));
+	}
+
+	public void acc_3(){
 		Iralapelota();
 	}
 
@@ -196,6 +222,15 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
 myRobotAPI.setSpeed(0.7);
+
+	}
+ 	public void arrastra() { 
+
+		myRobotAPI.setDisplayString("arrastra");
+Vec2 destino = new Vec2(0.0, 0.76);
+destino.add(myRobotAPI.getPosition());
+myRobotAPI.setSteerHeading(destino.t);
+myRobotAPI.setSpeed(1.0);
 
 	}
  	public void Iraporteriacontraria() { 
@@ -270,16 +305,19 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.blockClosest();
 myRobotAPI.kick();
+myRobotAPI.setDisplayString("Bloquea");
 
 	}
  	public void Wait() { 
 
-		myRobotAPI.setSpeed(0.0);
+		myRobotAPI.setSteerHeading(myRobotAPI.getBall().t);
+myRobotAPI.setSpeed(0.0);
 
 	}
  	public void Patear() { 
 
-		myRobotAPI.kick();
+		myRobotAPI.setDisplayString("kick");
+myRobotAPI.kick();
 
 	}
  	public void muevehaciaabajo() { 
@@ -292,13 +330,15 @@ myRobotAPI.setSpeed(1.0);
 	}
  	public void WalkTowardsGoal() { 
 
-		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
+		myRobotAPI.setDisplayString("andar");
+myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
 
 	}
  	public void Cubrir() { 
 
-		Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
+		myRobotAPI.setDisplayString("Cubrir");
+Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
 dest.add(myRobotAPI.getBall());
 myRobotAPI.setSteerHeading(dest.t);
 myRobotAPI.setSpeed(0.0);

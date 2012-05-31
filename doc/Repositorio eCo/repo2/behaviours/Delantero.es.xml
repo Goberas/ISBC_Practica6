@@ -940,5 +940,194 @@
       </es:newEdge>
     </es:EditOperation>
   </es:session>
+  <es:session id="2" timestamp="20120531-18:12:31.741">
+    <es:EditOperation timestamp="20120531-18:13:20.809" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="17">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="17" origen="6" destino="2" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.35" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="17" origen="6" destino="2" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.1" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+  </es:session>
+  <es:session id="3" timestamp="20120531-18:21:13.598">
+    <es:EditOperation timestamp="20120531-18:58:14.492" repositoryPath="repo2" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="23" from="8" to="2" />
+    <es:EditOperation timestamp="20120531-18:58:19.731" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="10">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="1" descripcion="lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.3" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="10" origen="8" destino="1" descripcion="lejos de la pelota&#xA;">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.3" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120531-18:58:59.736" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="23">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="23" origen="8" destino="2" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="23" origen="8" destino="2" descripcion="lejos pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.3" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:CompoundOperation operationType="COMPOUNDEDIT" description="eliminar arista">
+      <es:EditOperation timestamp="20120531-18:59:02.928" repositoryPath="repo2" mainBehaviour="Delantero" operationType="REMOVE_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="10" />
+    </es:CompoundOperation>
+  </es:session>
+  <es:session id="4" timestamp="20120531-19:18:20.848">
+    <es:EditOperation timestamp="20120531-19:19:19.629" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="7">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="7" origen="4" destino="6" descripcion="junto">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="closestToBall" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="7" origen="4" destino="6" descripcion="junto">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.1" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120531-19:23:21.000" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="9">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="6" destino="8" descripcion="alineado">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="alignedToBallandGoal" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="9" origen="6" destino="8" descripcion="alineado">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="alignedToBallandGoal" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120531-19:24:01.783" repositoryPath="repo2" mainBehaviour="Delantero" operationType="ADD_NODE" parentBehaviour="Delantero" parentId="MAIN" id="24" />
+    <es:EditOperation timestamp="20120531-19:24:39.655" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_NODE" parentBehaviour="Delantero" parentId="MAIN" id="24">
+      <es:oldContent />
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="tira" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="tira" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120531-19:24:42.771" repositoryPath="repo2" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="25" from="6" to="24" />
+    <es:EditOperation timestamp="20120531-19:25:04.041" repositoryPath="repo2" mainBehaviour="Delantero" operationType="ADD_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="26" from="24" to="1" />
+    <es:EditOperation timestamp="20120531-19:25:29.076" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="25">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="25" origen="6" destino="24" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="25" origen="6" destino="24" descripcion="puede tirar">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="==">
+                <left type="sensor" value="canKick" />
+                <right type="constant" value="true" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120531-19:26:04.905" repositoryPath="repo2" mainBehaviour="Delantero" operationType="EDIT_EDGE" parentBehaviour="Delantero" parentId="MAIN" id="26">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="26" origen="24" destino="1" descripcion="">
+          <condition />
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="26" origen="24" destino="1" descripcion="lejos de la pelota">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getBallR" />
+                <right type="constant" value="0.2" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+  </es:session>
+  <es:session id="5" timestamp="20120531-19:39:47.212" />
 </es:editSequence>
 

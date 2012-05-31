@@ -90,6 +90,7 @@ public class Buscador2Behaviour extends Behaviour {
 
 	@Override
 	public void onInit(RobotAPI r) {
+		myRobotAPI.setDisplayString("Buscador");
 		//Initialize the stack with the first state 
 		stack = new Vector<State>();
 		stack.add(states.get(0));

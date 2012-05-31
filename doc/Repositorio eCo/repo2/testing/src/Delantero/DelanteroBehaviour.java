@@ -166,10 +166,13 @@ public class DelanteroBehaviour extends Behaviour {
 
 		//State 5 : Node 13 
 		e = new State();
-		e.transitions = new Transition[1];
+		e.transitions = new Transition[2];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_5_0";
 		e.transitions[0].state = 0;
+		e.transitions[1] = new Transition();
+		e.transitions[1].condition = "cond_5_1";
+		e.transitions[1].state = 3;
 		e.actions = "acc_5";
 		states.add(e);
 
@@ -268,6 +271,11 @@ public class DelanteroBehaviour extends Behaviour {
 		return ((myRobotAPI.getJustScored() != 0));
 	}
 
+//Conditions for State 5 : Node 13
+	public Boolean cond_5_1(){
+		return ((-myRobotAPI.getFieldSide() * myRobotAPI.getPosition().x < 1.14));
+	}
+
 	public void acc_5(){
 		bloqueaportero();
 	}
@@ -279,7 +287,7 @@ public class DelanteroBehaviour extends Behaviour {
 
 //Conditions for State 6 : Node  6
 	public Boolean cond_6_1(){
-		return ((myRobotAPI.getBall().r > 0.35));
+		return ((myRobotAPI.getBall().r > 0.1));
 	}
 
 	public void acc_6(){
@@ -303,30 +311,25 @@ public class DelanteroBehaviour extends Behaviour {
 		myRobotAPI.setDisplayString("Lead Ball");
 myRobotAPI.alignedToBallandGoal();
 myRobotAPI.kick();
-    
 
 	}
  	public void BlockForward() { 
 
-		
-myRobotAPI.blockForward();
-    
+		myRobotAPI.blockForward();
 
 	}
  	public void GoToCenter() { 
 
-		
-Vec2 destino = new Vec2(0.0, 0.0);
+		Vec2 destino = new Vec2(0.0, 0.0);
 destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
-	
 
 	}
  	public void bloqueaportero() { 
 
 		myRobotAPI.setDisplayString("Bloquea Porteria");
-myRobotAPI.blockGoalKeeper();
+myRobotAPI.blockClosest();
 
 	}
  	public void Unblock() { 
@@ -334,17 +337,14 @@ myRobotAPI.blockGoalKeeper();
 		myRobotAPI.setDisplayString("Unblock");
 myRobotAPI.setSpeed(0.7);
 myRobotAPI.avoidCollisions();
-	
 
 	}
  	public void CoverGoal() { 
 
-		
-Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
+		Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
 dest.add(myRobotAPI.getBall());
 myRobotAPI.setSteerHeading(dest.t);
 myRobotAPI.setSpeed(1.0);
-	
 
 	}
  	public void gotoporteriacontraria() { 
@@ -353,7 +353,6 @@ myRobotAPI.setSpeed(1.0);
 myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
 myRobotAPI.setSpeed(1.0);
 myRobotAPI.alignedToBallandGoal();
-
 
 	}
  	public void Irpelota() { 
@@ -368,14 +367,12 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setDisplayString("Apunta");
 myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
-myRobotAPI.setSpeed(0.4);
+myRobotAPI.setSpeed(0.6);
 
 	}
  	public void Wait() { 
 
-		
-myRobotAPI.setSpeed(0.0);
-	
+		myRobotAPI.setSpeed(0.0);
 
 	}
  	public void coloca() { 
@@ -383,7 +380,6 @@ myRobotAPI.setSpeed(0.0);
 		myRobotAPI.setDisplayString("coloca");
 myRobotAPI.setBehindBall(myRobotAPI.getOpponentsGoal());
 myRobotAPI.setSpeed(0.6);
-
 
 	}
  	public void Nada() { 
@@ -394,17 +390,13 @@ myRobotAPI.setSpeed(1.0);
 	}
  	public void WalkTowardsGoal() { 
 
-		
-myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
+		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
-	
 
 	}
  	public void BlockGoalkeeper() { 
 
-		
-myRobotAPI.blockGoalKeeper();
-	
+		myRobotAPI.blockGoalKeeper();
 
 	}
  

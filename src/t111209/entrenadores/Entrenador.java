@@ -3,8 +3,11 @@ package t111209.entrenadores;
 import t111209.behaviours.Blocker;
 import t111209.behaviours.Buscador2Behaviour;
 import t111209.behaviours.CompiBehaviour;
+import t111209.behaviours.Defensa2Behaviour;
 import t111209.behaviours.DefensaBehaviour;
+import t111209.behaviours.IndianaJonesBehaviour;
 import t111209.behaviours.NehuenMaradonaBehaviour;
+import t111209.behaviours.Portero2Behaviour;
 import t111209.behaviours.PorteroBehaviour;
 import teams.ucmTeam.Behaviour;
 import teams.ucmTeam.RobotAPI;
@@ -48,13 +51,13 @@ public class Entrenador extends TeamManager {
 		RobotAPI portero1 = _players[0].getRobotAPI();
 		RobotAPI portero2 = _players[2].getRobotAPI();
 		
-		if((_players[0].getBehaviour()==_behaviours[2]) && portero1.blocked()){	// Si el jugador 0 es portero y esta bloqueado
+		if((_players[0].getBehaviour().equals(_behaviours[2])) && portero1.blocked()){	// Si el jugador 0 es portero y esta bloqueado
 			_players[0].setBehaviour(_behaviours[1]);	// jugador 0 es defensa
 			_players[2].setBehaviour(_behaviours[2]);	// jugador 2 es portero
 			ocupados[0] = false;
 			ocupados[2] = true;
 		}
-		else if((_players[2].getBehaviour()==_behaviours[2]) && portero2.blocked()){	// Si el jugador 3 es portero y esta bloqueado
+		else if((_players[2].getBehaviour().equals(_behaviours[2])) && portero2.blocked()){	// Si el jugador 3 es portero y esta bloqueado
 			_players[2].setBehaviour(_behaviours[1]);	// jugador 2 es defensa
 			_players[0].setBehaviour(_behaviours[2]);	// jugador 0 es portero
 			ocupados[2] = false;
@@ -67,7 +70,7 @@ public class Entrenador extends TeamManager {
 			_players[3].setBehaviour(_behaviours[4]);	// Jugador 3 -> Delantero
 			//_players[delantero1.getPlayerNumber()].setBehaviour(_behaviours[0]);
 		else
-			_players[3].setBehaviour(_behaviours[0]);	// Jugador 3 -> Compi
+			_players[3].setBehaviour(_behaviours[3]);	// Jugador 3 -> Compi
 
 	}
 	
@@ -77,11 +80,11 @@ public class Entrenador extends TeamManager {
 		case 0:
 			return _behaviours[2];	// Portero
 		case 1:
-			return _behaviours[3];	// Buscador
+			//return _behaviours[3];	// Buscador
 		case 2:
 			return _behaviours[1];	// Defensa
 		case 3:
-			return _behaviours[0];	// Compi
+			return _behaviours[3];	// Buscador
 		case 4:
 			return _behaviours[4];	// Delantero
 			
@@ -95,9 +98,9 @@ public class Entrenador extends TeamManager {
 	@Override
 	public Behaviour[] createBehaviours() {
 		return new Behaviour[] {new CompiBehaviour(), 		//0
-								new DefensaBehaviour(), 	//1
-								new PorteroBehaviour(),		//2
-								new Buscador2Behaviour(),	//3
+								new Defensa2Behaviour(), 	//1
+								new Portero2Behaviour(),		//2
+								new IndianaJonesBehaviour(),	//3
 								new NehuenMaradonaBehaviour(),	//4
 								new Blocker()};	//5
 		

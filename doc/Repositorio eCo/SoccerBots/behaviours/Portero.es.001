@@ -295,6 +295,82 @@
       </es:newEdge>
     </es:EditOperation>
   </es:session>
-  <es:session id="2" timestamp="20120501-18:41:04.781" />
+  <es:session id="2" timestamp="20120501-18:41:04.781">
+    <es:EditOperation timestamp="20120531-18:01:26.928" repositoryPath="SoccerBots" mainBehaviour="Portero" operationType="EDIT_EDGE" parentBehaviour="Portero" parentId="MAIN" id="17">
+      <es:oldEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="17" origen="11" destino="1" descripcion="Estoy en mi área y la pelota en mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="0.5" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="-0.5" />
+              </condition>
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="normalizedPositionX" />
+                <right type="constant" value="-1.145" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:oldEdge>
+      <es:newEdge>
+        <arista xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" id="17" origen="11" destino="1" descripcion="Estoy en mi área y la pelota en mi campo">
+          <condition>
+            <aggregation aggregator="AND">
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="0.25" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="getPositionY" />
+                <right type="constant" value="-0.25" />
+              </condition>
+              <condition xmlns="" comparator="&lt;">
+                <left type="sensor" value="normalizedPositionX" />
+                <right type="constant" value="-1.2" />
+              </condition>
+              <condition xmlns="" comparator="&gt;">
+                <left type="sensor" value="fieldBallX" />
+                <right type="constant" value="0" />
+              </condition>
+            </aggregation>
+          </condition>
+        </arista>
+      </es:newEdge>
+    </es:EditOperation>
+    <es:EditOperation timestamp="20120531-18:08:42.762" repositoryPath="SoccerBots" mainBehaviour="Portero" operationType="EDIT_NODE" parentBehaviour="Portero" parentId="MAIN" id="1">
+      <es:oldContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Cubrir Porteria" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="Cover Goal" />
+        </compAtomico>
+      </es:oldContent>
+      <es:newContent>
+        <compAtomico xmlns="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Cubrir" descripcion="">
+          <listaPropiedades>
+            <propiedad nombre="Attacker" valor="3.0" />
+            <propiedad nombre="Defender" valor="2.0" />
+            <propiedad nombre="Mobility" valor="4.0" />
+            <propiedad nombre="Goalkeeper" valor="1.0" />
+          </listaPropiedades>
+          <basicBehaviour name="Cubrir" />
+        </compAtomico>
+      </es:newContent>
+    </es:EditOperation>
+  </es:session>
+  <es:session id="3" timestamp="20120531-18:15:40.821" />
 </es:editSequence>
 

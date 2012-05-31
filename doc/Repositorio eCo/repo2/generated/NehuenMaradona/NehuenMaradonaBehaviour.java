@@ -178,13 +178,16 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 
 		//State 6 : Node  6 
 		e = new State();
-		e.transitions = new Transition[2];
+		e.transitions = new Transition[3];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_6_0";
 		e.transitions[0].state = 7;
 		e.transitions[1] = new Transition();
 		e.transitions[1].condition = "cond_6_1";
 		e.transitions[1].state = 2;
+		e.transitions[2] = new Transition();
+		e.transitions[2].condition = "cond_6_2";
+		e.transitions[2].state = 8;
 		e.actions = "acc_6";
 		states.add(e);
 
@@ -193,8 +196,17 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 		e.transitions = new Transition[1];
 		e.transitions[0] = new Transition();
 		e.transitions[0].condition = "cond_7_0";
-		e.transitions[0].state = 0;
+		e.transitions[0].state = 2;
 		e.actions = "acc_7";
+		states.add(e);
+
+		//State 8 : Node 24 
+		e = new State();
+		e.transitions = new Transition[1];
+		e.transitions[0] = new Transition();
+		e.transitions[0].condition = "cond_8_0";
+		e.transitions[0].state = 0;
+		e.actions = "acc_8";
 		states.add(e);
 
 
@@ -254,7 +266,7 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 
 //Conditions for State 4 : Node  4
 	public Boolean cond_4_0(){
-		return ((myRobotAPI.closestToBall() == true));
+		return ((myRobotAPI.getBall().r < 0.1));
 	}
 
 //Conditions for State 4 : Node  4
@@ -287,7 +299,12 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 
 //Conditions for State 6 : Node  6
 	public Boolean cond_6_1(){
-		return ((myRobotAPI.getBall().r > 0.35));
+		return ((myRobotAPI.getBall().r > 0.1));
+	}
+
+//Conditions for State 6 : Node  6
+	public Boolean cond_6_2(){
+		return ((myRobotAPI.canKick() == true));
 	}
 
 	public void acc_6(){
@@ -303,6 +320,15 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 		LeadBallToGoal();
 	}
 
+//Conditions for State 8 : Node 24
+	public Boolean cond_8_0(){
+		return ((myRobotAPI.getBall().r > 0.2));
+	}
+
+	public void acc_8(){
+		tira();
+	}
+
 
 	
 	//Code of basic behaviours that was building based in basic behaviours of de game model
@@ -311,24 +337,24 @@ public class NehuenMaradonaBehaviour extends Behaviour {
 		myRobotAPI.setDisplayString("Lead Ball");
 myRobotAPI.alignedToBallandGoal();
 myRobotAPI.kick();
-    
 
 	}
  	public void BlockForward() { 
 
-		
-myRobotAPI.blockForward();
-    
+		myRobotAPI.blockForward();
+
+	}
+ 	public void tira() { 
+
+		myRobotAPI.kick();
 
 	}
  	public void GoToCenter() { 
 
-		
-Vec2 destino = new Vec2(0.0, 0.0);
+		Vec2 destino = new Vec2(0.0, 0.0);
 destino.sub(myRobotAPI.getPosition());
 myRobotAPI.setSteerHeading(destino.t);
 myRobotAPI.setSpeed(1.0);
-	
 
 	}
  	public void bloqueaportero() { 
@@ -342,17 +368,14 @@ myRobotAPI.blockClosest();
 		myRobotAPI.setDisplayString("Unblock");
 myRobotAPI.setSpeed(0.7);
 myRobotAPI.avoidCollisions();
-	
 
 	}
  	public void CoverGoal() { 
 
-		
-Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
+		Vec2 dest = new Vec2(myRobotAPI.getOurGoal());
 dest.add(myRobotAPI.getBall());
 myRobotAPI.setSteerHeading(dest.t);
 myRobotAPI.setSpeed(1.0);
-	
 
 	}
  	public void gotoporteriacontraria() { 
@@ -361,7 +384,6 @@ myRobotAPI.setSpeed(1.0);
 myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
 myRobotAPI.setSpeed(1.0);
 myRobotAPI.alignedToBallandGoal();
-
 
 	}
  	public void Irpelota() { 
@@ -376,14 +398,12 @@ myRobotAPI.setSpeed(1.0);
 
 		myRobotAPI.setDisplayString("Apunta");
 myRobotAPI.setSteerHeading(myRobotAPI.getOpponentsGoal().t);
-myRobotAPI.setSpeed(0.6);
+myRobotAPI.setSpeed(1.0);
 
 	}
  	public void Wait() { 
 
-		
-myRobotAPI.setSpeed(0.0);
-	
+		myRobotAPI.setSpeed(0.0);
 
 	}
  	public void coloca() { 
@@ -391,7 +411,6 @@ myRobotAPI.setSpeed(0.0);
 		myRobotAPI.setDisplayString("coloca");
 myRobotAPI.setBehindBall(myRobotAPI.getOpponentsGoal());
 myRobotAPI.setSpeed(0.6);
-
 
 	}
  	public void Nada() { 
@@ -402,17 +421,13 @@ myRobotAPI.setSpeed(1.0);
 	}
  	public void WalkTowardsGoal() { 
 
-		
-myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
+		myRobotAPI.setSteerHeading(myRobotAPI.getOurGoal().t);
 myRobotAPI.setSpeed(1.0);
-	
 
 	}
  	public void BlockGoalkeeper() { 
 
-		
-myRobotAPI.blockGoalKeeper();
-	
+		myRobotAPI.blockGoalKeeper();
 
 	}
  

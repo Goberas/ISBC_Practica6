@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beh:compCompuesto xmlns:beh="http://www.local.com/eCo/xml/Comportamiento.xsd" nombre="Defensa" descripcion="">
   <beh:listaPropiedades>
-    <beh:propiedad nombre="Attacker" valor="3.0" />
     <beh:propiedad nombre="Defender" valor="2.0" />
+    <beh:propiedad nombre="Attacker" valor="3.0" />
     <beh:propiedad nombre="Mobility" valor="4.0" />
     <beh:propiedad nombre="Goalkeeper" valor="1.0" />
   </beh:listaPropiedades>
@@ -17,19 +17,7 @@
         </beh:listaPropiedades>
         <beh:basicBehaviour name="Walk Towards Goal" />
       </beh:compAtomico>
-      <beh:vista x="677" y="410" />
-    </beh:nodo>
-    <beh:nodo id="13" inicial="false">
-      <beh:compAtomico nombre="Wait" descripcion="">
-        <beh:listaPropiedades>
-          <beh:propiedad nombre="Defender" valor="2.0" />
-          <beh:propiedad nombre="Attacker" valor="3.0" />
-          <beh:propiedad nombre="Mobility" valor="4.0" />
-          <beh:propiedad nombre="Goalkeeper" valor="1.0" />
-        </beh:listaPropiedades>
-        <beh:basicBehaviour name="Wait" />
-      </beh:compAtomico>
-      <beh:vista x="576" y="616" />
+      <beh:vista x="230" y="501" />
     </beh:nodo>
     <beh:nodo id="2" inicial="false">
       <beh:compAtomico nombre="Ir a la pelota" descripcion="">
@@ -41,7 +29,7 @@
         </beh:listaPropiedades>
         <beh:basicBehaviour name="Ir a la pelota" />
       </beh:compAtomico>
-      <beh:vista x="395" y="143" />
+      <beh:vista x="325" y="66" />
     </beh:nodo>
     <beh:nodo id="1" inicial="false">
       <beh:compAtomico nombre="bloquea cercano" descripcion="">
@@ -53,20 +41,10 @@
         </beh:listaPropiedades>
         <beh:basicBehaviour name="bloquea cercano" />
       </beh:compAtomico>
-      <beh:vista x="327" y="468" />
+      <beh:vista x="180" y="311" />
     </beh:nodo>
   </beh:nodos>
   <beh:aristas>
-    <beh:arista id="15" origen="10" destino="13" descripcion="cerca de la porteria">
-      <beh:condition>
-        <beh:aggregation aggregator="AND">
-          <condition comparator="&lt;=">
-            <left type="sensor" value="getOurGoalR" />
-            <right type="constant" value="0.35" />
-          </condition>
-        </beh:aggregation>
-      </beh:condition>
-    </beh:arista>
     <beh:arista id="4" origen="2" destino="1" descripcion="no esta en mi campo o estoy cerca">
       <beh:condition>
         <beh:aggregation aggregator="OR">
@@ -77,16 +55,6 @@
           <condition comparator="&lt;">
             <left type="sensor" value="getBallR" />
             <right type="constant" value="0.1" />
-          </condition>
-        </beh:aggregation>
-      </beh:condition>
-    </beh:arista>
-    <beh:arista id="14" origen="13" destino="1" descripcion="pelota en mi campo">
-      <beh:condition>
-        <beh:aggregation aggregator="AND">
-          <condition comparator="&lt;">
-            <left type="sensor" value="fieldBallX" />
-            <right type="constant" value="0" />
           </condition>
         </beh:aggregation>
       </beh:condition>
@@ -105,12 +73,12 @@
         </beh:aggregation>
       </beh:condition>
     </beh:arista>
-    <beh:arista id="12" origen="2" destino="10" descripcion="acaba de marcar">
+    <beh:arista id="11" origen="10" destino="1" descripcion="Estoy ya cerca">
       <beh:condition>
         <beh:aggregation aggregator="AND">
-          <condition comparator="!=">
-            <left type="sensor" value="getJustScored" />
-            <right type="constant" value="0" />
+          <condition comparator="&lt;=">
+            <left type="sensor" value="getOurGoalR" />
+            <right type="constant" value="0.2" />
           </condition>
         </beh:aggregation>
       </beh:condition>

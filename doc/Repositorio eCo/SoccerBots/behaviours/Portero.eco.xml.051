@@ -260,9 +260,9 @@
     <beh:arista id="25" origen="22" destino="11" descripcion="acaba de marcar">
       <beh:condition>
         <beh:aggregation aggregator="AND">
-          <condition comparator="!=">
+          <condition comparator="==">
             <left type="sensor" value="getJustScored" />
-            <right type="constant" value="0" />
+            <right type="constant" value="true" />
           </condition>
         </beh:aggregation>
       </beh:condition>

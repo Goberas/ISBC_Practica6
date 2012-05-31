@@ -29,74 +29,42 @@
         </beh:listaPropiedades>
         <beh:nodos>
           <beh:nodo id="26" inicial="true">
-            <beh:compAtomico nombre="colocar" descripcion="El jugador se mueve directamente hacia la pelota">
+            <beh:compAtomico nombre="Ir a la pelota" descripcion="El jugador se mueve directamente hacia la pelota">
               <beh:listaPropiedades>
                 <beh:propiedad nombre="Attacker" valor="3.0" />
                 <beh:propiedad nombre="Defender" valor="2.0" />
                 <beh:propiedad nombre="Mobility" valor="4.0" />
                 <beh:propiedad nombre="Goalkeeper" valor="1.0" />
               </beh:listaPropiedades>
-              <beh:basicBehaviour name="colocar" />
+              <beh:basicBehaviour name="Ir a la pelota" />
             </beh:compAtomico>
             <beh:vista x="271" y="200" />
           </beh:nodo>
           <beh:nodo id="25" inicial="false">
-            <beh:compAtomico nombre="apuntar" descripcion="&#xA;">
+            <beh:compAtomico nombre="pasar" descripcion="Da un golpe a la pelota&#xA;">
               <beh:listaPropiedades>
                 <beh:propiedad nombre="Attacker" valor="3.0" />
                 <beh:propiedad nombre="Defender" valor="2.0" />
                 <beh:propiedad nombre="Mobility" valor="4.0" />
                 <beh:propiedad nombre="Goalkeeper" valor="1.0" />
               </beh:listaPropiedades>
-              <beh:basicBehaviour name="apuntar" />
+              <beh:basicBehaviour name="pasar" />
             </beh:compAtomico>
             <beh:vista x="176" y="400" />
           </beh:nodo>
-          <beh:nodo id="35" inicial="false">
-            <beh:compAtomico nombre="Patear" descripcion="">
-              <beh:listaPropiedades>
-                <beh:propiedad nombre="Defender" valor="2.0" />
-                <beh:propiedad nombre="Attacker" valor="3.0" />
-                <beh:propiedad nombre="Mobility" valor="4.0" />
-                <beh:propiedad nombre="Goalkeeper" valor="1.0" />
-              </beh:listaPropiedades>
-              <beh:basicBehaviour name="Patear" />
-            </beh:compAtomico>
-            <beh:vista x="523" y="400" />
-          </beh:nodo>
         </beh:nodos>
         <beh:aristas>
-          <beh:arista id="28" origen="25" destino="26" descripcion="No ">
-            <beh:condition>
-              <beh:aggregation aggregator="AND">
-                <condition comparator="&gt;">
-                  <left type="sensor" value="getBallR" />
-                  <right type="constant" value="0.1" />
-                </condition>
-              </beh:aggregation>
-            </beh:condition>
-          </beh:arista>
-          <beh:arista id="27" origen="26" destino="25" descripcion="Muy cerca de la pelota">
+          <beh:arista id="28" origen="25" destino="26" descripcion="No puedo golpear">
             <beh:condition>
               <beh:aggregation aggregator="AND">
                 <condition comparator="==">
-                  <left type="sensor" value="getBallR" />
-                  <right type="constant" value="0.1" />
+                  <left type="sensor" value="canKick" />
+                  <right type="constant" value="false" />
                 </condition>
               </beh:aggregation>
             </beh:condition>
           </beh:arista>
-          <beh:arista id="37" origen="35" destino="26" descripcion="">
-            <beh:condition>
-              <beh:aggregation aggregator="AND">
-                <condition comparator="&gt;">
-                  <left type="sensor" value="getBallR" />
-                  <right type="constant" value="0.15" />
-                </condition>
-              </beh:aggregation>
-            </beh:condition>
-          </beh:arista>
-          <beh:arista id="36" origen="25" destino="35" descripcion="puede tirar">
+          <beh:arista id="27" origen="26" destino="25" descripcion="Puedo dar una patada">
             <beh:condition>
               <beh:aggregation aggregator="AND">
                 <condition comparator="==">
